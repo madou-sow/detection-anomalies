@@ -61,21 +61,18 @@ Isolation Forest est un algorithme développé à l'origine pour la détection d
    
      
     int which_max(std::vector<double> &v)
-    {
-        auto loc_max_el = std::max_element(v.begin(), v.end());
-        return std::distance(v.begin(), loc_max_el);
-    }
+{
+    auto loc_max_el = std::max_element(v.begin(), v.end());
+    return std::distance(v.begin(), loc_max_el);
+}
 
-    int main()
-    {
-     
-    /* 
-      Random data from a standard normal distribution
+
+int main()
+{
+    /* Random data from a standard normal distribution
        (100 points generated randomly, plus 1 outlier added manually)
        Library assumes it is passed as a single-dimensional pointer,
-       following column-major order (like Fortran) 
-    */
-      
+       following column-major order (like Fortran) */
     int nrow = 101;
     int ncol = 2;
     std::vector<double> X( nrow * ncol );
@@ -85,7 +82,7 @@ Isolation Forest est un algorithme développé à l'origine pour la détection d
     for (int col = 0; col < ncol; col++)
         for (int row = 0; row < 100; row++)
             X[get_ix(row, col)] = rnorm(rng);
-     
+
     /* Now add obvious outlier point (3,3) */
     X[get_ix(100, 0)] = 3.;
     X[get_ix(100, 1)] = 3.;
@@ -111,4 +108,3 @@ Isolation Forest est un algorithme développé à l'origine pour la détection d
 
     return EXIT_SUCCESS;
 }
-
