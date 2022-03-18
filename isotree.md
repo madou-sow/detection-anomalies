@@ -58,8 +58,7 @@ Isolation Forest est un algorithme développé à l'origine pour la détection d
    Then run with './test'
       
 */
-
-`      
+   
       
 int which_max(std::vector<double> &v)
 {
@@ -69,7 +68,7 @@ int which_max(std::vector<double> &v)
 
 int main()
 {
-    /* 
+    `/* 
       Random data from a standard normal distribution
        (100 points generated randomly, plus 1 outlier added manually)
        Library assumes it is passed as a single-dimensional pointer,
@@ -111,5 +110,4 @@ int main()
 
     return EXIT_SUCCESS;
 }
-`
 
