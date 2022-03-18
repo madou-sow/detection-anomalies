@@ -18,16 +18,16 @@ Isolation Forest est un algorithme développé à l'origine pour la détection d
 5. Les modèles peuvent être sérialisés et désérialisés de manière très idiomatique
 
 
-`
-## /home/mamadou/big-data/cerin24022022/cpp-isotree/example/isotree_cpp_oop_ex.cpp
 
-#include <random>
-#include <algorithm>
-#include <iostream>
-#include <sstream>
-#include "isotree_oop.hpp"
+    ## /home/mamadou/big-data/cerin24022022/cpp-isotree/example/isotree_cpp_oop_ex.cpp
 
-/*  
+    #include <random>
+    #include <algorithm>
+    #include <iostream>
+    #include <sstream>
+    #include "isotree_oop.hpp"
+
+   /*  
       To compile this example, first build the package through the cmake system:
       
       mkdir build
@@ -57,7 +57,7 @@ Isolation Forest est un algorithme développé à l'origine pour la détection d
 
    Then run with './test'
       
-*/
+    */
    
      
 int which_max(std::vector<double> &v)
