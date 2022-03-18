@@ -1,4 +1,4 @@
-# anomalie-detection
+# Anomalie-Detection
 
 Dans la continuation de notre travail avec Kimura, nous allons maintenant passer au data stream anomaly detection problem.
 
