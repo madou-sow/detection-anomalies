@@ -73,7 +73,7 @@ int main()
        (100 points generated randomly, plus 1 outlier added manually)
        Library assumes it is passed as a single-dimensional pointer,
        following column-major order (like Fortran) 
-      */
+      `*/
       
     int nrow = 101;
     int ncol = 2;
