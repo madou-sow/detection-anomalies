@@ -20,7 +20,7 @@ Isolation Forest est un algorithme développé à l'origine pour la détection d
 <p>
       
 //## /home/mamadou/big-data/cerin24022022/cpp-isotree/example/isotree_cpp_oop_ex.cpp
-
+<code>
 #include <random>
 #include <algorithm>
 #include <iostream>
@@ -93,5 +93,5 @@ int main()
 
     return EXIT_SUCCESS;
 }
- 
+</code> 
 </p>
