@@ -66,8 +66,8 @@ int which_max(std::vector<double> &v)
     return std::distance(v.begin(), loc_max_el);
 }
 
-int main()
-{
+    int main()
+    {
      
     /* 
       Random data from a standard normal distribution
