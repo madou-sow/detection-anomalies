@@ -9,4 +9,5 @@ une observation aberrante comme celle-ci. Le concept est étendu à la division 
 par plus d'une colonne à la fois) et aux divisions guidées (pas entièrement aléatoires) dans le modèle SCiForest qui visent à isoler plus rapidement 
 les valeurs aberrantes et à trouver des valeurs aberrantes groupées.
 
-Notez qu'il s'agit d'un modèle de boîte noire qui ne produira pas d'explications ou d'importances - pour une approche différente de la détection des valeurs aberrantes explicables, voir OutlierTree.
+Notez qu'il s'agit d'un modèle de boîte noire qui ne produira pas d'explications ou d'importances - pour une approche différente de la 
+détection des valeurs aberrantes explicables, voir OutlierTree.
