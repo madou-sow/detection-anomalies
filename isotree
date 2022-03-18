@@ -1,0 +1,7 @@
+# Détecter une valeur aberrante évidente
+
+Référence https://github.com/david-cortes/isotree
+
+Isolation Forest est un algorithme développé à l'origine pour la détection de valeurs aberrantes qui consiste à diviser au hasard des sous-échantillons de données en fonction d'attributs/caractéristiques/colonnes. L'idée est que, plus l'observation est rare, plus il est probable qu'une répartition uniforme aléatoire sur une caractéristique placerait des valeurs aberrantes seules dans une branche, et moins il faudra de divisions pour isoler une observation aberrante comme celle-ci. Le concept est étendu à la division des hyperplans dans le modèle étendu (c'est-à-dire la division par plus d'une colonne à la fois) et aux divisions guidées (pas entièrement aléatoires) dans le modèle SCiForest qui visent à isoler plus rapidement les valeurs aberrantes et à trouver des valeurs aberrantes groupées.
+
+Notez qu'il s'agit d'un modèle de boîte noire qui ne produira pas d'explications ou d'importances - pour une approche différente de la détection des valeurs aberrantes explicables, voir OutlierTree.
