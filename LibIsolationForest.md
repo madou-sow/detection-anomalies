@@ -1,4 +1,4 @@
-##LibIsolationForest
+## LibIsolationForest
 
 https://github.com/msimms/LibIsolationForest
 
