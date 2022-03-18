@@ -29,12 +29,19 @@ Isolation Forest est un algorithme développé à l'origine pour la détection d
 
 /*  
       To compile this example, first build the package through the cmake system:
+      
       mkdir build
+      
       cd build
+      
       cmake ..
+      
       make
+      
       sudo make install
+      
       sudo ldconfig
+      
    Then compile this single file and link to the shared library:
      g++ -o test isotree_cpp_oop_ex.cpp -lisotree -std=c++11
 
