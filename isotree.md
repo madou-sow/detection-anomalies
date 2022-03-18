@@ -51,7 +51,7 @@ int which_max(std::vector<double> &v)
     auto loc_max_el = std::max_element(v.begin(), v.end());
     return std::distance(v.begin(), loc_max_el);
 }
-      </code>
+
 int main()
 {
     /* Random data from a standard normal distribution
@@ -67,7 +67,7 @@ int main()
     for (int col = 0; col < ncol; col++)
         for (int row = 0; row < 100; row++)
             X[get_ix(row, col)] = rnorm(rng);
-
+      </code>
     /* Now add obvious outlier point (3,3) */
     X[get_ix(100, 0)] = 3.;
     X[get_ix(100, 1)] = 3.;
