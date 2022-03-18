@@ -17,6 +17,7 @@ Isolation Forest est un algorithme développé à l'origine pour la détection d
 
 5. Les modèles peuvent être sérialisés et désérialisés de manière très idiomatique
 
+*isotree_cpp_oop_ex.cpp*
 
         # /home/mamadou/big-data/cerin24022022/cpp-isotree/example/isotree_cpp_oop_ex.cpp
 
@@ -96,7 +97,7 @@ Isolation Forest est un algorithme développé à l'origine pour la détection d
 
 
 
-
+*isotree_oop.hpp*
 
         ## /home/mamadou/big-data/cerin24022022/cpp-isotree/example/isotree_oop.hpp
 
