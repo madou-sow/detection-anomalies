@@ -43,16 +43,23 @@ Isolation Forest est un algorithme développé à l'origine pour la détection d
       sudo ldconfig
       
    Then compile this single file and link to the shared library:
+      
      g++ -o test isotree_cpp_oop_ex.cpp -lisotree -std=c++11
-
+      
    Or to link against it without a system install, assuming the cmake system
+      
    has already built the library under ./build and this command is called from
+      
    the root folder:
+      
      g++ -o test example/isotree_cpp_oop_ex.cpp -std=c++11 -I./include -l:libisotree.so -L./build -Wl,-rpath,./build
+      
 
    Then run with './test'
+      
 */
 
+      
 int which_max(std::vector<double> &v)
 {
     auto loc_max_el = std::max_element(v.begin(), v.end());
