@@ -60,11 +60,11 @@ Isolation Forest est un algorithme développé à l'origine pour la détection d
     */
    
      
-int which_max(std::vector<double> &v)
-{
-    auto loc_max_el = std::max_element(v.begin(), v.end());
-    return std::distance(v.begin(), loc_max_el);
-}
+    int which_max(std::vector<double> &v)
+    {
+        auto loc_max_el = std::max_element(v.begin(), v.end());
+        return std::distance(v.begin(), loc_max_el);
+    }
 
     int main()
     {
