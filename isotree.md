@@ -20,7 +20,7 @@ Isolation Forest est un algorithme développé à l'origine pour la détection d
 <p>
       
 //## /home/mamadou/big-data/cerin24022022/cpp-isotree/example/isotree_cpp_oop_ex.cpp
-``
+<code>
 #include <random>
 #include <algorithm>
 #include <iostream>
@@ -51,7 +51,7 @@ int which_max(std::vector<double> &v)
     auto loc_max_el = std::max_element(v.begin(), v.end());
     return std::distance(v.begin(), loc_max_el);
 }
-
+      </code>
 int main()
 {
     /* Random data from a standard normal distribution
@@ -93,5 +93,5 @@ int main()
 
     return EXIT_SUCCESS;
 }
-``
+
 </p>
