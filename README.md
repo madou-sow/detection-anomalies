@@ -17,9 +17,9 @@ A ce propos nous nous sommes orienté vers quelques programmes
   1. [ISOTREE](https://github.com/antaresatlantide/anomalie-detection/blob/main/isotree.md)
   2. [LIBISOLATIONFOREST](https://github.com/antaresatlantide/anomalie-detection/blob/main/LibIsolationForest.md)
   3. [RANGER](https://github.com/antaresatlantide/anomalie-detection/blob/main/ranger.md)
-  4. [Machine Learning From Scratch with C++](https://github.com/antaresatlantide/anomalie-detection/edit/main/MLfromcrashcpp.md)
-     - 4.1 [K-Means](https://github.com/antaresatlantide/anomalie-detection/edit/main/MLfromcrashcpp.md)
-     - 4.2 [K-NN](https://github.com/antaresatlantide/anomalie-detection/edit/main/MLfromcrashcpp.md)
-     - 4.3 [REGRESSIONTREES](https://github.com/antaresatlantide/anomalie-detection/edit/main/MLfromcrashcpp.md)
+  4. [Machine Learning From Scratch with C++](https://github.com/antaresatlantide/anomalie-detection/blob/main/MLfromcrashcpp.md)
+     - 4.1 [K-Means](https://github.com/antaresatlantide/anomalie-detection/blob/main/MLfromcrashcpp.md)
+     - 4.2 [K-NN](https://github.com/antaresatlantide/anomalie-detection/blob/main/MLfromcrashcpp.md)
+     - 4.3 [REGRESSIONTREES](https://github.com/antaresatlantide/anomalie-detection/blob/main/MLfromcrashcpp.md)
     
   
