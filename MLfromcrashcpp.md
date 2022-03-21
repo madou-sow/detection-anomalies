@@ -12,7 +12,7 @@ Most of the machine learning implementations are based on python, and I hope to 
 * https://github.com/eriklindernoren/ML-From-Scratch
 
 
-### [k-means](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/k-means)
+### 1 [k-means](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/k-means)
 
 J'ai une histoire un peu compliquée en ce qui concerne C++. Quand j'avais 15 ans et que j'apprenais à coder, je n'arrivais pas à choisir entre python et C++ et j'ai donc essayé d'apprendre les deux en même temps. L'un de mes premiers projets non triviaux était un programme C++ pour calculer des orbites - en y repensant maintenant, je peux voir que ce que je faisais réellement était une implémentation (horriblement inefficace) de la méthode d'Euler. Je ne pouvais tout simplement pas comprendre les tableaux de taille fixe (sans parler des pointeurs !). Dans tous les cas, j'ai vite réalisé que jongler avec C++ et python était intenable - non seulement j'étais nouveau dans les concepts (tels que les systèmes de types et la POO), mais je devais apprendre deux ensembles de syntaxe en plus de deux saveurs de ces concepts. J'ai décidé de m'engager dans Python et je n'ai pas vraiment regardé en arrière depuis.
 
@@ -22,7 +22,7 @@ Maintenant, presque 6 ans plus tard (tempus fugit !), après avoir terminé le c
 
 S'il vous plaît, permettez-moi d'ajouter l'avertissement que cela ne sera certainement pas une solution optimale - ce message est vraiment un exercice d'apprentissage pour moi et je serais plus qu'heureux de recevoir des critiques constructives. Comme toujours, tout le code de ce projet se trouve sur GitHub.
 
-### Qu'est-ce que le clustering k-means ?
+#### Qu'est-ce que le clustering k-means ?
 
 J'ai décidé de donner quatre brèves explications avec une rigueur croissante. Rien au-delà de la première explication n'est vraiment essentiel pour la suite de cet article, alors n'hésitez pas à vous arrêter à tout moment.
 
@@ -34,7 +34,7 @@ https://reasonabledeviations.com/2019/10/02/k-means-in-cpp/
 4. Formellement, le clustering k-means consiste à trouver une partition S={S1,S2,…Sk} où S satisfait :
 argmin∑i=1k∑x∈Si∥x−μi∥2
 
-### L'algorithme des k-moyennes
+#### L'algorithme des k-moyennes
 Le problème de clustering k-means est en fait incroyablement difficile à résoudre. Disons que nous avons juste N = 120 et k = 5, c'est-à-dire que nous avons 120 points de données que nous voulons regrouper en 5 clusters. Le nombre de partitions possibles est supérieur au nombre d'atomes dans l'univers (5120≈1083) – pour chacune, il faut alors calculer le WCSS (lire : variance) et choisir la meilleure partition.
 
 De toute évidence, tout type de solutions de force brute est insoluble (pour être précis, le problème a une complexité exponentielle). Il faut donc se tourner vers des solutions approchées. L'algorithme approximatif le plus célèbre est l'algorithme de Lloyd, qui est souvent appelé "l'algorithme des k-moyennes". Dans cet article, je vais faire taire mon pédant intérieur et utiliser de manière interchangeable les termes algorithme k-means et clustering k-means, mais il convient de rappeler qu'ils sont légèrement distincts. Cela mis à part, l'algorithme de Lloyd est incroyablement simple :
@@ -320,7 +320,7 @@ Nous recalculons ensuite à plusieurs reprises les centroïdes et réattribuons 
         86,82,5
 
 
-### [K-NN (k nearest neighbors)](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/k-nn)
+### 2 [K-NN (k nearest neighbors)](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/k-nn)
 
 En intelligence artificielle, plus précisément en apprentissage automatique, la méthode des k plus proches voisins est une méthode d’apprentissage supervisé. En abrégé k-NN ou KNN, de l anglais k-nearest neighbors.
 
@@ -443,7 +443,7 @@ La méthode k-NN est basée sur l'apprentissage préalable, ou l'apprentissage f
       input: {2.78108, 2.55054}, prediction: 0
 
 
-### [Regression Trees](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/RegressionTrees)
+### 3 [Regression Trees](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/RegressionTrees)
 
 **CART (arbres de classification et de régression)**
 
