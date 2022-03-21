@@ -416,60 +416,31 @@ Utilisez Forest::SetRandomizer pour remplacer le randomiseur par défaut par cel
 
 **IsolationForest.cpp**
 
- Constructeur.
- 
- Constructeur.
- 
- Destructeur.
- 
- Renvoie le nœud sous forme de chaîne JSON.
- 
- Constructeur.
- 
- Constructeur.
- 
- Destructeur.
- 
- Ajoute chacune des fonctionnalités de l'échantillon à la liste des fonctionnalités connues
- avec l'ensemble correspondant de valeurs uniques.
- 
- Nous ne stockons pas l'échantillon directement, juste les fonctionnalités.
-        
- Créez ou mettez à jour le nombre de valeurs de caractéristiques.
-
- Crée et renvoie un seul arbre. Comme il s'agit d'une fonction récursive,
- depth indique la profondeur actuelle de la récursivité.
- 
- Verification sanitaire.
-
- Si nous avons dépassé la profondeur maximale souhaitée, alors arrêtez.
-
- Sélection aléatoire d'une fonctionnalité.
-
- Récupère la liste de valeurs à diviser.
-
- Sélection aléatoire d'une valeur fractionnée.
-
- Crée un nœud d'arbre pour contenir la valeur fractionnée.
-
- Crée deux versions de l'ensemble de valeurs de caractéristiques que nous venons d'utiliser,
- un pour le côté gauche de l'arbre et un pour le côté droit.
-
- Crée le sous-arbre de gauche.
-
- Crée la bonne sous-arborescence.
-
- Crée une forêt contenant le nombre d'arbres spécifié au constructeur.
+Algorithme 
+1. Constructeur.
+2. Renvoie le nœud sous forme de chaîne JSON.
+3. Constructeur.
+4. Destructeur.
+5. Ajoute chacune des fonctionnalités de l'échantillon à la liste des fonctionnalités connues avec l'ensemble correspondant de valeurs uniques.
+6. Nous ne stockons pas l'échantillon directement, juste les fonctionnalités.
+7. Créez ou mettez à jour le nombre de valeurs de caractéristiques.
+8. Crée et renvoie un seul arbre. Comme il s'agit d'une fonction récursive, depth indique la profondeur actuelle de la récursivité.
+9. Verification sanitaire.
+10. Si nous avons dépassé la profondeur maximale souhaitée, alors arrêtez.
+11. Sélection aléatoire d'une fonctionnalité.
+12. Récupère la liste de valeurs à diviser.
+13. Sélection aléatoire d'une valeur fractionnée.
+14. Crée un nœud d'arbre pour contenir la valeur fractionnée. un pour le côté gauche de l'arbre et un pour le côté droit.
+15. Crée le sous-arbre de gauche.
+16. Crée la bonne sous-arborescence.
+17. Crée une forêt contenant le nombre d'arbres spécifié au constructeur.
      Note l'échantillon par rapport à l'arbre spécifié.
-     
- Trouve la fonctionnalité suivante dans l'exemple.
-
- Si l'arbre contient une entité qui n'est pas dans l'échantillon, alors prenez
+18. Trouve la fonctionnalité suivante dans l'exemple.
+19. Si l'arbre contient une entité qui n'est pas dans l'échantillon, alors prenez
  les deux côtés de l'arbre et faites la moyenne des scores ensemble.
-
- Note l'échantillon par rapport à l'ensemble de la forêt d'arbres. Le résultat est la longueur moyenne du trajet.
- Note l'échantillon par rapport à l'ensemble de la forêt d'arbres. Le résultat est normalisé de sorte que les valeurs
-     proches de 1 indiquent des anomalies et des valeurs proches de zéro indiquent des valeurs normales.
- Détruit toute la forêt d'arbres.
- Libère l'objet randomiseur personnalisé (le cas échéant).
- Renvoie la forêt sous la forme d'un objet JSON.
+20. Note l'échantillon par rapport à l'ensemble de la forêt d'arbres. Le résultat est la longueur moyenne du trajet.
+21. Note l'échantillon par rapport à l'ensemble de la forêt d'arbres. Le résultat est normalisé de sorte que les valeurs proches de 1 indiquent des anomalies et des valeurs proches de zéro indiquent des valeurs normales.
+22. Détruit toute la forêt d'arbres.
+23. Libère l'objet randomiseur personnalisé (le cas échéant).
+24. Renvoie la forêt sous la forme d'un objet JSON.
+25.  Dernier élément
