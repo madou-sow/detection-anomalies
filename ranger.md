@@ -16,187 +16,187 @@ une analyse plus approfondie. La version R est aussi rapide que la version C++ a
 
 **Programme en C++**
 
-    /*-------------------------------------------------------------------------------
+         /*-------------------------------------------------------------------------------
 
-    mamadou@port-lipn12:~/big-data/cerin24022022/cpp-mnwright/ranger/cpp_version/src$ cat main.cpp 
+         mamadou@port-lipn12:~/big-data/cerin24022022/cpp-mnwright/ranger/cpp_version/src$ cat main.cpp 
 
-     This file is part of ranger.
+          This file is part of ranger.
 
-     Copyright (c) [2014-2018] [Marvin N. Wright]
+          Copyright (c) [2014-2018] [Marvin N. Wright]
 
-     This software may be modified and distributed under the terms of the MIT license.
+          This software may be modified and distributed under the terms of the MIT license.
 
-     Please note that the C++ core of ranger is distributed under MIT license and the
-     R package "ranger" under GPL3 license.
-     #-------------------------------------------------------------------------------*/
+          Please note that the C++ core of ranger is distributed under MIT license and the
+          R package "ranger" under GPL3 license.
+          #-------------------------------------------------------------------------------*/
 
-    #include <iostream>
-    #include <fstream>
-    #include <stdexcept>
-    #include <string>
-    #include <memory>
+         #include <iostream>
+         #include <fstream>
+         #include <stdexcept>
+         #include <string>
+         #include <memory>
 
-    #include "globals.h"
-    #include "ArgumentHandler.h"
-    #include "ForestClassification.h"
-    #include "ForestRegression.h"
-    #include "ForestSurvival.h"
-    #include "ForestProbability.h"
-    #include "utility.h"
+         #include "globals.h"
+         #include "ArgumentHandler.h"
+         #include "ForestClassification.h"
+         #include "ForestRegression.h"
+         #include "ForestSurvival.h"
+         #include "ForestProbability.h"
+         #include "utility.h"
 
-    using namespace ranger;
+         using namespace ranger;
 
-    void run_ranger(const ArgumentHandler& arg_handler, std::ostream& verbose_out) {
-      verbose_out << "Starting Ranger." << std::endl;
+         void run_ranger(const ArgumentHandler& arg_handler, std::ostream& verbose_out) {
+           verbose_out << "Starting Ranger." << std::endl;
 
-      // Create forest object
-      std::unique_ptr<Forest> forest { };
-      switch (arg_handler.treetype) {
-      case TREE_CLASSIFICATION:
-        if (arg_handler.probability) {
-          forest = make_unique<ForestProbability>();
-        } else {
-          forest = make_unique<ForestClassification>();
-        }
-        break;
-      case TREE_REGRESSION:
-        forest = make_unique<ForestRegression>();
-        break;
-      case TREE_SURVIVAL:
-        forest = make_unique<ForestSurvival>();
-        break;
-      case TREE_PROBABILITY:
-        forest = make_unique<ForestProbability>();
-        break;
-      }
+           // Create forest object
+           std::unique_ptr<Forest> forest { };
+           switch (arg_handler.treetype) {
+           case TREE_CLASSIFICATION:
+             if (arg_handler.probability) {
+               forest = make_unique<ForestProbability>();
+             } else {
+               forest = make_unique<ForestClassification>();
+             }
+             break;
+           case TREE_REGRESSION:
+             forest = make_unique<ForestRegression>();
+             break;
+           case TREE_SURVIVAL:
+             forest = make_unique<ForestSurvival>();
+             break;
+           case TREE_PROBABILITY:
+             forest = make_unique<ForestProbability>();
+             break;
+           }
 
-      // Call Ranger
-      forest->initCpp(arg_handler.depvarname, arg_handler.memmode, arg_handler.file, arg_handler.mtry,
-          arg_handler.outprefix, arg_handler.ntree, &verbose_out, arg_handler.seed, arg_handler.nthreads,
-          arg_handler.predict, arg_handler.impmeasure, arg_handler.targetpartitionsize, arg_handler.splitweights,
-          arg_handler.alwayssplitvars, arg_handler.statusvarname, arg_handler.replace, arg_handler.catvars,
-          arg_handler.savemem, arg_handler.splitrule, arg_handler.caseweights, arg_handler.predall, arg_handler.fraction,
-          arg_handler.alpha, arg_handler.minprop, arg_handler.holdout, arg_handler.predictiontype,
-          arg_handler.randomsplits, arg_handler.maxdepth, arg_handler.regcoef, arg_handler.usedepth);
+           // Call Ranger
+           forest->initCpp(arg_handler.depvarname, arg_handler.memmode, arg_handler.file, arg_handler.mtry,
+               arg_handler.outprefix, arg_handler.ntree, &verbose_out, arg_handler.seed, arg_handler.nthreads,
+               arg_handler.predict, arg_handler.impmeasure, arg_handler.targetpartitionsize, arg_handler.splitweights,
+               arg_handler.alwayssplitvars, arg_handler.statusvarname, arg_handler.replace, arg_handler.catvars,
+               arg_handler.savemem, arg_handler.splitrule, arg_handler.caseweights, arg_handler.predall, arg_handler.fraction,
+               arg_handler.alpha, arg_handler.minprop, arg_handler.holdout, arg_handler.predictiontype,
+               arg_handler.randomsplits, arg_handler.maxdepth, arg_handler.regcoef, arg_handler.usedepth);
 
-      forest->run(true, !arg_handler.skipoob);
-      if (arg_handler.write) {
-        forest->saveToFile();
-      }
-      forest->writeOutput();
-      verbose_out << "Finished Ranger." << std::endl;
-    }
+           forest->run(true, !arg_handler.skipoob);
+           if (arg_handler.write) {
+             forest->saveToFile();
+           }
+           forest->writeOutput();
+           verbose_out << "Finished Ranger." << std::endl;
+         }
 
-    int main(int argc, char **argv) {
+         int main(int argc, char **argv) {
 
-      try {
-        // Handle command line arguments
-        ArgumentHandler arg_handler(argc, argv);
-        if (arg_handler.processArguments() != 0) {
-          return 0;
-        }
-        arg_handler.checkArguments();
+           try {
+             // Handle command line arguments
+             ArgumentHandler arg_handler(argc, argv);
+             if (arg_handler.processArguments() != 0) {
+               return 0;
+             }
+             arg_handler.checkArguments();
 
-        if (arg_handler.verbose) {
-          run_ranger(arg_handler, std::cout);
-        } else {
-          std::ofstream logfile { arg_handler.outprefix + ".log" };
-          if (!logfile.good()) {
-            throw std::runtime_error("Could not write to logfile.");
-          }
-          run_ranger(arg_handler, logfile);
-        }
-      } catch (std::exception& e) {
-        std::cerr << "Error: " << e.what() << " Ranger will EXIT now." << std::endl;
-        return -1;
-      }
+             if (arg_handler.verbose) {
+               run_ranger(arg_handler, std::cout);
+             } else {
+               std::ofstream logfile { arg_handler.outprefix + ".log" };
+               if (!logfile.good()) {
+                 throw std::runtime_error("Could not write to logfile.");
+               }
+               run_ranger(arg_handler, logfile);
+             }
+           } catch (std::exception& e) {
+             std::cerr << "Error: " << e.what() << " Ranger will EXIT now." << std::endl;
+             return -1;
+           }
 
-      return 0;
-    }
-    
-    
-    
-    **ForestClassification.h**
-    
-    
-    /*-------------------------------------------------------------------------------
-
-mamadou@port-lipn12:~/big-data/cerin24022022/cpp-mnwright/ranger/cpp_version/src/Forest$ cat  ForestClassification.h
+           return 0;
+         }
 
 
- This file is part of ranger.
 
- Copyright (c) [2014-2018] [Marvin N. Wright]
+         **ForestClassification.h**
 
- This software may be modified and distributed under the terms of the MIT license.
 
- Please note that the C++ core of ranger is distributed under MIT license and the
- R package "ranger" under GPL3 license.
- #-------------------------------------------------------------------------------*/
+         /*-------------------------------------------------------------------------------
 
-#ifndef FORESTCLASSIFICATION_H_
-#define FORESTCLASSIFICATION_H_
+     mamadou@port-lipn12:~/big-data/cerin24022022/cpp-mnwright/ranger/cpp_version/src/Forest$ cat  ForestClassification.h
 
-#include <iostream>
-#include <map>
-#include <utility>
-#include <vector>
 
-#include "globals.h"
-#include "Forest.h"
+      This file is part of ranger.
 
-namespace ranger {
+      Copyright (c) [2014-2018] [Marvin N. Wright]
 
-class ForestClassification: public Forest {
-public:
-  ForestClassification() = default;
+      This software may be modified and distributed under the terms of the MIT license.
 
-  ForestClassification(const ForestClassification&) = delete;
-  ForestClassification& operator=(const ForestClassification&) = delete;
+      Please note that the C++ core of ranger is distributed under MIT license and the
+      R package "ranger" under GPL3 license.
+      #-------------------------------------------------------------------------------*/
 
-  virtual ~ForestClassification() override = default;
+     #ifndef FORESTCLASSIFICATION_H_
+     #define FORESTCLASSIFICATION_H_
 
-  void loadForest(size_t num_trees, std::vector<std::vector<std::vector<size_t>> >& forest_child_nodeIDs,
-      std::vector<std::vector<size_t>>& forest_split_varIDs, std::vector<std::vector<double>>& forest_split_values,
-      std::vector<double>& class_values, std::vector<bool>& is_ordered_variable);
+     #include <iostream>
+     #include <map>
+     #include <utility>
+     #include <vector>
 
-  const std::vector<double>& getClassValues() const {
-    return class_values;
-  }
+     #include "globals.h"
+     #include "Forest.h"
 
-  void setClassWeights(std::vector<double>& class_weights) {
-    this->class_weights = class_weights;
-  }
+     namespace ranger {
 
-protected:
-  void initInternal() override;
-  void growInternal() override;
-  void allocatePredictMemory() override;
-  void predictInternal(size_t sample_idx) override;
-  void computePredictionErrorInternal() override;
-  void writeOutputInternal() override;
-  void writeConfusionFile() override;
-  void writePredictionFile() override;
-  void saveToFileInternal(std::ofstream& outfile) override;
-  void loadFromFileInternal(std::ifstream& infile) override;
+     class ForestClassification: public Forest {
+     public:
+       ForestClassification() = default;
 
-  // Classes of the dependent variable and classIDs for responses
-  std::vector<double> class_values;
-  std::vector<uint> response_classIDs;
-  std::vector<std::vector<size_t>> sampleIDs_per_class;
+       ForestClassification(const ForestClassification&) = delete;
+       ForestClassification& operator=(const ForestClassification&) = delete;
 
-  // Splitting weights
-  std::vector<double> class_weights;
+       virtual ~ForestClassification() override = default;
 
-  // Table with classifications and true classes
-  std::map<std::pair<double, double>, size_t> classification_table;
+       void loadForest(size_t num_trees, std::vector<std::vector<std::vector<size_t>> >& forest_child_nodeIDs,
+           std::vector<std::vector<size_t>>& forest_split_varIDs, std::vector<std::vector<double>>& forest_split_values,
+           std::vector<double>& class_values, std::vector<bool>& is_ordered_variable);
 
-private:
-  double getTreePrediction(size_t tree_idx, size_t sample_idx) const;
-  size_t getTreePredictionTerminalNodeID(size_t tree_idx, size_t sample_idx) const;
-};
+       const std::vector<double>& getClassValues() const {
+         return class_values;
+       }
 
-} // namespace ranger
+       void setClassWeights(std::vector<double>& class_weights) {
+         this->class_weights = class_weights;
+       }
 
-#endif /* FORESTCLASSIFICATION_H_ */
+     protected:
+       void initInternal() override;
+       void growInternal() override;
+       void allocatePredictMemory() override;
+       void predictInternal(size_t sample_idx) override;
+       void computePredictionErrorInternal() override;
+       void writeOutputInternal() override;
+       void writeConfusionFile() override;
+       void writePredictionFile() override;
+       void saveToFileInternal(std::ofstream& outfile) override;
+       void loadFromFileInternal(std::ifstream& infile) override;
+
+       // Classes of the dependent variable and classIDs for responses
+       std::vector<double> class_values;
+       std::vector<uint> response_classIDs;
+       std::vector<std::vector<size_t>> sampleIDs_per_class;
+
+       // Splitting weights
+       std::vector<double> class_weights;
+
+       // Table with classifications and true classes
+       std::map<std::pair<double, double>, size_t> classification_table;
+
+     private:
+       double getTreePrediction(size_t tree_idx, size_t sample_idx) const;
+       size_t getTreePredictionTerminalNodeID(size_t tree_idx, size_t sample_idx) const;
+     };
+
+     } // namespace ranger
+
+     #endif /* FORESTCLASSIFICATION_H_ */
 
