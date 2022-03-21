@@ -116,7 +116,7 @@ une analyse plus approfondie. La version R est aussi rapide que la version C++ a
 
 
 
-         **ForestClassification.h**
+  **ForestClassification.h**
 
 
          /*-------------------------------------------------------------------------------
