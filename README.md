@@ -14,5 +14,5 @@ L’article sur HAL, lui, suppose que nous travaillons dans l’écosystème Pyt
 
 A ce propos nous nous sommes orienté vers quelques programmes 
 
-  1.[ISOTREE](https://github.com/david-cortes/isotree)
-  2.[LIBISOLATIONFOREST](https://github.com/msimms/LibIsolationForest)
+  1. [ISOTREE](https://github.com/david-cortes/isotree)
+  2. [LIBISOLATIONFOREST](https://github.com/msimms/LibIsolationForest)
