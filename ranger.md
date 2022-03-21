@@ -1,4 +1,6 @@
-##ranger : A Fast Implementation of Random Forests
+
+#ranger : A Fast Implementation of Random Forests
+
 Marvin N. Wright
 
 https://github.com/imbs-hl/ranger
