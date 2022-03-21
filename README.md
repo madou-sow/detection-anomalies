@@ -18,5 +18,5 @@ A ce propos nous nous sommes orienté vers quelques programmes
   2. [LIBISOLATIONFOREST](https://github.com/msimms/LibIsolationForest)
   3. [RANGER](https://github.com/imbs-hl/ranger)
   4. [Machine Learning From Scratch with C++](https://github.com/magikerwin1993/ML-From-Scratch-With-CPP)
-  4.1  [k-Means](https://github.com/magikerwin1993/ML-From-Scratch-With-CPP/tree/main/k-means)
+    4.1  [k-Means](https://github.com/magikerwin1993/ML-From-Scratch-With-CPP/tree/main/k-means)
   
