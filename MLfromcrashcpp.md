@@ -440,7 +440,7 @@ La méthode k-NN est basée sur l'apprentissage préalable, ou l'apprentissage f
       input: {2.78108, 2.55054}, prediction: 0
 
 
-### Regression Trees
+### [Regression Trees](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/RegressionTrees)
 
 **CART (arbres de classification et de régression)**
 
