@@ -1,0 +1,67 @@
+
+ ## Machine Learning From Scratch with C++
+
+Implementations of Classic Machine Learning Algorithm with C++
+(some visualization works are implemented with python)
+
+Most of the machine learning implementations are based on python, and I hope to provide some reference for C++ enthusiasts through this repository.
+
+### ToDo List
+- [X] [k-means](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/k-means)
+- [X] [k-NN (k nearest neighbors)](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/k-nn)
+- [X] [regression trees](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/RegressionTrees)
+- [X] [simple linear regresion](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/SimpleLinearReg)
+- [X] [multiple variable linear regression with SGD](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/MultiVarLinearRegWithSGD)
+- [X] [logistic regression with SGD](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/LogisticRegWithSGD)
+- [X] [perceptron](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/Perceptron)
+- [X] [MLP with backpropagation](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/MLPWithBP)
+- [X] [optimizer (SGD, Adam)](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/Optimizer)
+- [ ] random forest
+- [ ] convolutional neural network
+- [ ] collaborative filtering
+
+## Reference
+* https://machinelearningmastery.com/machine-learning-algorithms-from-scratch/
+* https://github.com/eriklindernoren/ML-From-Scratch
+
+## k-means
+
+J'ai une histoire un peu compliquée en ce qui concerne C++. Quand j'avais 15 ans et que j'apprenais à coder, je n'arrivais pas à choisir entre python et C++ et j'ai donc essayé d'apprendre les deux en même temps. L'un de mes premiers projets non triviaux était un programme C++ pour calculer des orbites - en y repensant maintenant, je peux voir que ce que je faisais réellement était une implémentation (horriblement inefficace) de la méthode d'Euler. Je ne pouvais tout simplement pas comprendre les tableaux de taille fixe (sans parler des pointeurs !). Dans tous les cas, j'ai vite réalisé que jongler avec C++ et python était intenable - non seulement j'étais nouveau dans les concepts (tels que les systèmes de types et la POO), mais je devais apprendre deux ensembles de syntaxe en plus de deux saveurs de ces concepts. J'ai décidé de m'engager dans Python et je n'ai pas vraiment regardé en arrière depuis.
+
+Maintenant, presque 6 ans plus tard (tempus fugit !), après avoir terminé le cours d'informatique de première année à Cambridge, j'ai l'impression d'être dans un bien meilleur endroit pour m'initier au C++. Ma motivation est aidée par le fait que tous les travaux pratiques de calcul de deuxième année pour la physique sont effectués en C++, sans compter que le C++ est incroyablement utile en finance quantitative (ce qui m'intéresse profondément).
+
+À cette fin, j'ai décidé de me lancer directement et d'implémenter un algorithme d'apprentissage automatique à partir de zéro. J'ai choisi k-means en raison de sa signification personnelle pour moi : lorsque j'ai découvert ML pour la première fois, k-means a été l'un des premiers algorithmes que j'ai pleinement étudié et j'ai passé un bon moment à expérimenter différentes modifications et implémentations en python. De plus, étant donné que l'objectif principal de cet article est d'apprendre le C++, il est logique d'utiliser un algorithme que je comprends relativement bien.
+
+S'il vous plaît, permettez-moi d'ajouter l'avertissement que cela ne sera certainement pas une solution optimale - ce message est vraiment un exercice d'apprentissage pour moi et je serais plus qu'heureux de recevoir des critiques constructives. Comme toujours, tout le code de ce projet se trouve sur GitHub.
+
+### Qu'est-ce que le clustering k-means ?
+J'ai décidé de donner quatre brèves explications avec une rigueur croissante. Rien au-delà de la première explication n'est vraiment essentiel pour la suite de cet article, alors n'hésitez pas à vous arrêter à tout moment.
+
+https://reasonabledeviations.com/2019/10/02/k-means-in-cpp/
+
+1. Le clustering k-means nous permet de trouver des groupes de points similaires dans un ensemble de données.
+2. Le clustering k-means consiste à trouver des groupes de points dans un ensemble de données de sorte que la variance totale au sein des groupes soit minimisée.
+3. Le clustering k-means est la tâche de partitionner l'espace des caractéristiques en k sous-ensembles afin de minimiser les écarts de somme des carrés (WCSS) intra-cluster, qui est la somme des distances quadra euclidiennes entre chaque point de données et le centroïde.
+4. Formellement, le clustering k-means consiste à trouver une partition S={S1,S2,…Sk} où S satisfait :
+argmin∑i=1k∑x∈Si∥x−μi∥2
+
+### L'algorithme des k-moyennes
+Le problème de clustering k-means est en fait incroyablement difficile à résoudre. Disons que nous avons juste N = 120 et k = 5, c'est-à-dire que nous avons 120 points de données que nous voulons regrouper en 5 clusters. Le nombre de partitions possibles est supérieur au nombre d'atomes dans l'univers (5120≈1083) – pour chacune, il faut alors calculer le WCSS (lire : variance) et choisir la meilleure partition.
+
+De toute évidence, tout type de solutions de force brute est insoluble (pour être précis, le problème a une complexité exponentielle). Il faut donc se tourner vers des solutions approchées. L'algorithme approximatif le plus célèbre est l'algorithme de Lloyd, qui est souvent appelé "l'algorithme des k-moyennes". Dans cet article, je vais faire taire mon pédant intérieur et utiliser de manière interchangeable les termes algorithme k-means et clustering k-means, mais il convient de rappeler qu'ils sont légèrement distincts. Cela mis à part, l'algorithme de Lloyd est incroyablement simple :
+
+1. Initialiser les clusters
+
+L'algorithme doit commencer quelque part, nous devons donc trouver une manière grossière de regrouper les points. Pour ce faire, nous sélectionnons au hasard k points qui deviennent des «marqueurs», puis attribuons chaque point de données à son point marqueur le plus proche. Le résultat est k clusters. Bien qu'il s'agisse d'une méthode d'initialisation naïve, elle possède de belles propriétés - les régions plus densément peuplées sont plus susceptibles de contenir des centroïdes (ce qui est logique).
+
+2. Calculer le centroïde de chaque cluster
+
+Techniquement, l'algorithme de Lloyd calcule le centroïde de chaque partition de l'espace 3D via l'intégration, mais nous utilisons l'approximation raisonnable du calcul du centre de masse des points dans une partition donnée. Le rationnel derrière cela est que le centre de gravité d'un cluster « caractérise » le cluster dans un certain sens.
+
+3. Attribuez chaque point au centroïde le plus proche et redéfinissez le cluster
+
+Si un point actuellement dans le cluster 1 est en fait plus proche du centre de gravité du cluster 2, il est sûrement plus logique qu'il appartienne au cluster 2 ? C'est exactement ce que nous faisons, en boucle sur tous les points et en les attribuant à des clusters en fonction du centroïde le plus proche.
+
+4. Répétez les étapes 2 et 3
+
+Nous recalculons ensuite à plusieurs reprises les centroïdes et réattribuons les points au centroïde le plus proche. Il existe en fait une preuve très nette que cela converge : essentiellement, il n'y a qu'un nombre fini (bien que massif) de partitions possibles, et chaque mise à jour de k-means améliore au moins le WCSS. L'algorithme doit donc converger.
