@@ -1,7 +1,7 @@
 
  ## Machine Learning From Scratch with C++
  
- [Référence](https://github.com/eriklindernoren/ML-From-Scratch)
+ [Référence](https://github.com/magikerwin1993/ML-From-Scratch-With-CPP)
 
 Implementations of Classic Machine Learning Algorithm with C++
 (some visualization works are implemented with python)
