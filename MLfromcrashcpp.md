@@ -12,7 +12,7 @@ Most of the machine learning implementations are based on python, and I hope to 
 * https://github.com/eriklindernoren/ML-From-Scratch
 
 
-### 1 [k-means](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/k-means)
+### [1 k-means](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/k-means)
 
 J'ai une histoire un peu compliquée en ce qui concerne C++. Quand j'avais 15 ans et que j'apprenais à coder, je n'arrivais pas à choisir entre python et C++ et j'ai donc essayé d'apprendre les deux en même temps. L'un de mes premiers projets non triviaux était un programme C++ pour calculer des orbites - en y repensant maintenant, je peux voir que ce que je faisais réellement était une implémentation (horriblement inefficace) de la méthode d'Euler. Je ne pouvais tout simplement pas comprendre les tableaux de taille fixe (sans parler des pointeurs !). Dans tous les cas, j'ai vite réalisé que jongler avec C++ et python était intenable - non seulement j'étais nouveau dans les concepts (tels que les systèmes de types et la POO), mais je devais apprendre deux ensembles de syntaxe en plus de deux saveurs de ces concepts. J'ai décidé de m'engager dans Python et je n'ai pas vraiment regardé en arrière depuis.
 
@@ -320,7 +320,7 @@ Nous recalculons ensuite à plusieurs reprises les centroïdes et réattribuons 
         86,82,5
 
 
-### 2 [K-NN (k nearest neighbors)](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/k-nn)
+### [2 K-NN (k nearest neighbors)](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/k-nn)
 
 En intelligence artificielle, plus précisément en apprentissage automatique, la méthode des k plus proches voisins est une méthode d’apprentissage supervisé. En abrégé k-NN ou KNN, de l anglais k-nearest neighbors.
 
@@ -443,7 +443,7 @@ La méthode k-NN est basée sur l'apprentissage préalable, ou l'apprentissage f
       input: {2.78108, 2.55054}, prediction: 0
 
 
-### 3 [Regression Trees](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/RegressionTrees)
+### [3 Regression Trees](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/RegressionTrees)
 
 **CART (arbres de classification et de régression)**
 
