@@ -204,70 +204,70 @@ Nous recalculons ensuite à plusieurs reprises les centroïdes et réattribuons 
 **Éxécution**
 
 
-mamadou@port-lipn12:~/big-data/cerin24022022/ML-From-Scratch-With-CPP/k-means$ cat mall_customers.csv 
-CustomerID,Genre,Age,Annual Income (k$),Spending Score (1-100)
-0001,Male,19,15,39
-0002,Male,21,15,81
-0003,Female,20,16,6
-0004,Female,23,16,77
-0005,Female,31,17,40
-0006,Female,22,17,76
-0007,Female,35,18,6
-0008,Female,23,18,94
-0009,Male,64,19,3
-0010,Female,30,19,72
-0011,Male,67,19,14
-0012,Female,35,19,99
-0013,Female,58,20,15
-0014,Female,24,20,77
-0015,Male,37,20,13
-0016,Male,22,20,79
-0017,Female,35,21,35
-0018,Male,20,21,66
-0019,Male,52,23,29
-0020,Female,35,23,98
-0021,Male,35,24,35
-0022,Male,25,24,73
+        mamadou@port-lipn12:~/big-data/cerin24022022/ML-From-Scratch-With-CPP/k-means$ cat mall_customers.csv 
+        CustomerID,Genre,Age,Annual Income (k$),Spending Score (1-100)
+        0001,Male,19,15,39
+        0002,Male,21,15,81
+        0003,Female,20,16,6
+        0004,Female,23,16,77
+        0005,Female,31,17,40
+        0006,Female,22,17,76
+        0007,Female,35,18,6
+        0008,Female,23,18,94
+        0009,Male,64,19,3
+        0010,Female,30,19,72
+        0011,Male,67,19,14
+        0012,Female,35,19,99
+        0013,Female,58,20,15
+        0014,Female,24,20,77
+        0015,Male,37,20,13
+        0016,Male,22,20,79
+        0017,Female,35,21,35
+        0018,Male,20,21,66
+        0019,Male,52,23,29
+        0020,Female,35,23,98
+        0021,Male,35,24,35
+        0022,Male,25,24,73
 
-mamadou@port-lipn12:~/big-data/cerin24022022/ML-From-Scratch-With-CPP/k-means$ cat points_iter_0.csv
-x,y,clusterIdx
-15,39,0
-15,81,1
-16,6,2
-16,77,3
-17,40,4
-17,76,5
-18,6,2
-18,94,1
-19,3,2
+        mamadou@port-lipn12:~/big-data/cerin24022022/ML-From-Scratch-With-CPP/k-means$ cat points_iter_0.csv
+        x,y,clusterIdx
+        15,39,0
+        15,81,1
+        16,6,2
+        16,77,3
+        17,40,4
+        17,76,5
+        18,6,2
+        18,94,1
+        19,3,2
 
-mamadou@port-lipn12:~/big-data/cerin24022022/ML-From-Scratch-With-CPP/k-means$ cat points_iter_1.csv
-x,y,clusterIdx
-15,39,0
-15,81,3
-16,6,0
-16,77,3
-17,40,0
-17,76,3
-18,6,0
-18,94,1
-19,3,0
+        mamadou@port-lipn12:~/big-data/cerin24022022/ML-From-Scratch-With-CPP/k-means$ cat points_iter_1.csv
+        x,y,clusterIdx
+        15,39,0
+        15,81,3
+        16,6,0
+        16,77,3
+        17,40,0
+        17,76,3
+        18,6,0
+        18,94,1
+        19,3,0
 
-mamadou@port-lipn12:~/big-data/cerin24022022/ML-From-Scratch-With-CPP/k-means$ cat points_iter_2.csv
-x,y,clusterIdx
-15,39,0
-15,81,3
-16,6,0
-16,77,3
-17,40,0
-17,76,3
-18,6,0
-18,94,1
-19,3,0
-19,72,3
-19,14,0
-19,99,1
-20,15,0
+        mamadou@port-lipn12:~/big-data/cerin24022022/ML-From-Scratch-With-CPP/k-means$ cat points_iter_2.csv
+        x,y,clusterIdx
+        15,39,0
+        15,81,3
+        16,6,0
+        16,77,3
+        17,40,0
+        17,76,3
+        18,6,0
+        18,94,1
+        19,3,0
+        19,72,3
+        19,14,0
+        19,99,1
+        20,15,0
 
         mamadou@port-lipn12:~/big-data/cerin24022022/ML-From-Scratch-With-CPP/k-means$ cat points_iter_3.csv
         x,y,clusterIdx
