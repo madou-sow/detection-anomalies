@@ -1,30 +1,15 @@
 
  ## Machine Learning From Scratch with C++
+ 
+ [Référence](https://github.com/eriklindernoren/ML-From-Scratch)
 
 Implementations of Classic Machine Learning Algorithm with C++
 (some visualization works are implemented with python)
 
 Most of the machine learning implementations are based on python, and I hope to provide some reference for C++ enthusiasts through this repository.
 
-### ToDo List
-- [X] [k-means](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/k-means)
-- [X] [k-NN (k nearest neighbors)](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/k-nn)
-- [X] [regression trees](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/RegressionTrees)
-- [X] [simple linear regresion](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/SimpleLinearReg)
-- [X] [multiple variable linear regression with SGD](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/MultiVarLinearRegWithSGD)
-- [X] [logistic regression with SGD](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/LogisticRegWithSGD)
-- [X] [perceptron](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/Perceptron)
-- [X] [MLP with backpropagation](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/MLPWithBP)
-- [X] [optimizer (SGD, Adam)](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/Optimizer)
-- [ ] random forest
-- [ ] convolutional neural network
-- [ ] collaborative filtering
 
-## Reference
-* https://machinelearningmastery.com/machine-learning-algorithms-from-scratch/
-* https://github.com/eriklindernoren/ML-From-Scratch
-
-## k-means
+### k-means [k-means](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/k-means)
 
 J'ai une histoire un peu compliquée en ce qui concerne C++. Quand j'avais 15 ans et que j'apprenais à coder, je n'arrivais pas à choisir entre python et C++ et j'ai donc essayé d'apprendre les deux en même temps. L'un de mes premiers projets non triviaux était un programme C++ pour calculer des orbites - en y repensant maintenant, je peux voir que ce que je faisais réellement était une implémentation (horriblement inefficace) de la méthode d'Euler. Je ne pouvais tout simplement pas comprendre les tableaux de taille fixe (sans parler des pointeurs !). Dans tous les cas, j'ai vite réalisé que jongler avec C++ et python était intenable - non seulement j'étais nouveau dans les concepts (tels que les systèmes de types et la POO), mais je devais apprendre deux ensembles de syntaxe en plus de deux saveurs de ces concepts. J'ai décidé de m'engager dans Python et je n'ai pas vraiment regardé en arrière depuis.
 
@@ -34,7 +19,8 @@ Maintenant, presque 6 ans plus tard (tempus fugit !), après avoir terminé le c
 
 S'il vous plaît, permettez-moi d'ajouter l'avertissement que cela ne sera certainement pas une solution optimale - ce message est vraiment un exercice d'apprentissage pour moi et je serais plus qu'heureux de recevoir des critiques constructives. Comme toujours, tout le code de ce projet se trouve sur GitHub.
 
-### Qu'est-ce que le clustering k-means ?
+### Qu'est-ce que le clustering k-means ?
+
 J'ai décidé de donner quatre brèves explications avec une rigueur croissante. Rien au-delà de la première explication n'est vraiment essentiel pour la suite de cet article, alors n'hésitez pas à vous arrêter à tout moment.
 
 https://reasonabledeviations.com/2019/10/02/k-means-in-cpp/
@@ -65,3 +51,19 @@ Si un point actuellement dans le cluster 1 est en fait plus proche du centre de 
 4. Répétez les étapes 2 et 3
 
 Nous recalculons ensuite à plusieurs reprises les centroïdes et réattribuons les points au centroïde le plus proche. Il existe en fait une preuve très nette que cela converge : essentiellement, il n'y a qu'un nombre fini (bien que massif) de partitions possibles, et chaque mise à jour de k-means améliore au moins le WCSS. L'algorithme doit donc converger.
+
+
+
+### [K-NN (k nearest neighbors)](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/k-nn)
+
+En intelligence artificielle, plus précisément en apprentissage automatique, la méthode des k plus proches voisins est une méthode d’apprentissage supervisé. En abrégé k-NN ou KNN, de l anglais k-nearest neighbors.
+
+Dans ce cadre, on dispose d’une base de données d'apprentissage constituée de N couples « entrée-sortie ». Pour estimer la sortie associée à une nouvelle entrée x, la méthode des k plus proches voisins consiste à prendre en compte (de façon identique) les k échantillons d'apprentissage dont l’entrée est la plus proche de la nouvelle entrée x, selon une distance à définir. Puisque cet algorithme est basé sur la distance, la normalisation peut améliorer sa précision
+
+En reconnaissance de forme, l'algorithme des k plus proches voisins (k-NN) est une méthode non paramétrique utilisée pour la classification et la régression. Dans les deux cas, il s'agit de classer l'entrée dans la catégorie à laquelle appartient les k plus proches voisins dans l'espace des caractéristiques identifiées par apprentissage. Le résultat dépend si l'algorithme est utilisé à des fins de classification ou de régression :
+
+1. en classification k-NN, le résultat est une classe d'appartenance. Un objet d'entrée est classifié selon le résultat majoritaire des statistiques de classes d'appartenance de ses k plus proches voisins, (k est un nombre entier positif généralement petit). Si k = 1, alors l'objet est affecté à la classe d'appartenance de son proche voisin.
+2. en régression k-NN, le résultat est la valeur pour cet objet. Cette valeur est la moyenne des valeurs des k plus proches voisins.
+
+
+La méthode k-NN est basée sur l'apprentissage préalable, ou l'apprentissage faible, où la fonction est évaluée localement, le calcul définitif étant effectué à l'issue de la classification. L'algorithme k-NN est parmi les plus simples des algorithmes de machines learning.
