@@ -865,3 +865,21 @@ Algorithme
         }
     }
 
+        mamadou@port-lipn12:~/big-data/cerin24022022/cpp-LibIsolationForest/cpp
+        ./isolationforestsimms 
+        Test 1:
+        -------
+        Average of control test samples: 7.35
+        Average of control test samples (normalized): 0.330412
+        Average of outlier test samples: 6.14
+        Average of outlier test samples (normalized): 0.393111
+        Total time for Test 1: 0.00767787 seconds.
+
+        Test 2:
+        -------
+        Average of control test samples: 8.8179
+        Average of control test samples (normalized): 0.521212
+        Average of outlier test samples: 5.3068
+        Average of outlier test samples (normalized): 0.675219
+        Total time for Test 1: 0.0556247 seconds.
+
