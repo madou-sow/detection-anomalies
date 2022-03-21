@@ -8,6 +8,9 @@ Implementations of Classic Machine Learning Algorithm with C++
 
 Most of the machine learning implementations are based on python, and I hope to provide some reference for C++ enthusiasts through this repository.
 
+* https://machinelearningmastery.com/machine-learning-algorithms-from-scratch/
+* https://github.com/eriklindernoren/ML-From-Scratch
+
 
 ### [k-means](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/k-means)
 
