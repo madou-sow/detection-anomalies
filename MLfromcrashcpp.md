@@ -9,7 +9,7 @@ Implementations of Classic Machine Learning Algorithm with C++
 Most of the machine learning implementations are based on python, and I hope to provide some reference for C++ enthusiasts through this repository.
 
 
-### k-means [k-means](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/k-means)
+### [k-means](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/k-means)
 
 J'ai une histoire un peu compliquée en ce qui concerne C++. Quand j'avais 15 ans et que j'apprenais à coder, je n'arrivais pas à choisir entre python et C++ et j'ai donc essayé d'apprendre les deux en même temps. L'un de mes premiers projets non triviaux était un programme C++ pour calculer des orbites - en y repensant maintenant, je peux voir que ce que je faisais réellement était une implémentation (horriblement inefficace) de la méthode d'Euler. Je ne pouvais tout simplement pas comprendre les tableaux de taille fixe (sans parler des pointeurs !). Dans tous les cas, j'ai vite réalisé que jongler avec C++ et python était intenable - non seulement j'étais nouveau dans les concepts (tels que les systèmes de types et la POO), mais je devais apprendre deux ensembles de syntaxe en plus de deux saveurs de ces concepts. J'ai décidé de m'engager dans Python et je n'ai pas vraiment regardé en arrière depuis.
 
@@ -51,6 +51,156 @@ Si un point actuellement dans le cluster 1 est en fait plus proche du centre de 
 4. Répétez les étapes 2 et 3
 
 Nous recalculons ensuite à plusieurs reprises les centroïdes et réattribuons les points au centroïde le plus proche. Il existe en fait une preuve très nette que cela converge : essentiellement, il n'y a qu'un nombre fini (bien que massif) de partitions possibles, et chaque mise à jour de k-means améliore au moins le WCSS. L'algorithme doit donc converger.
+
+**Programme**
+
+
+    /* 
+    mamadou@port-lipn12:~/big-data/cerin24022022/ML-From-Scratch-With-CPP/k-means$ cat main.cpp
+    k-means clustering is the task of finding groups of 
+    pointrs in a dataset such that the total variance within
+    groups is minimized.
+
+    --> find argmin(sum(xi - ci)^2)
+
+    algorithm:
+
+    1. init the clusters
+
+    iterations {
+        2. assign each point to the nearest centroid
+        3. redefine the cluster
+    }
+
+    */
+
+    #include <ctime>    // for a random seed
+    #include <fstream>  // for file reading
+    #include <sstream>
+    #include <iostream>
+    #include <vector>
+    #include <cmath>    // for pow()
+    #include <cfloat>   // for DBL_MAX
+
+    using namespace std;
+
+    struct Point {
+        int x, y;
+        int cluster;
+        double minDistance;
+
+        Point(int _x, int _y) {
+            x = _x;
+            y = _y;
+            cluster = -1;
+            minDistance = DBL_MAX;
+        }
+
+        double distance(Point p) {
+            return pow((this->x - p.x), 2) + pow(this->y - p.y, 2);
+        }
+    };
+
+    vector<Point> readCSV(string path) {
+        vector<Point> points;
+        string line;
+        ifstream file(path);
+
+        getline(file, line); // pop header
+        while (getline(file, line)) {
+            stringstream lineStream(line);
+
+            double x, y;
+            string bit;
+            getline(lineStream, bit, ',');
+            getline(lineStream, bit, ',');
+            getline(lineStream, bit, ',');
+            getline(lineStream, bit, ',');
+            x = stof(bit);
+            getline(lineStream, bit, '\n');
+            y = stof(bit);
+
+            points.push_back(Point(x, y));
+        }
+
+        file.close();
+        return points;
+    }
+
+    void kMeansClustering(vector<Point> &points, int epochs, int k) {
+
+        // 1. init centroids
+        vector<Point> centroids;
+        srand(time(0)); // need to set the random seed
+        int numOfPoints = points.size();
+        for (int i=0; i<k; i++) {
+            //int pointIdx = rand() % numOfPoints;
+            int pointIdx = i;
+            centroids.push_back(points.at(pointIdx));
+            centroids.back().cluster = i;
+        }
+
+        // do some iterations
+        for (int e=0; e<epochs; e++) {
+
+            // 2. assign points to a cluster
+            for (auto &point : points) {
+                point.minDistance = DBL_MAX;
+                for (int c=0; c<centroids.size(); c++) {
+                    double distance = point.distance(centroids[c]);
+                    if (distance < point.minDistance) {
+                        point.minDistance = distance;
+                        point.cluster = c;
+                    }
+                }
+            }
+
+            // 3. redefine centroids
+            vector<int> sizeOfEachCluster(k, 0);
+            vector<double> sumXOfEachCluster(k, 0);
+            vector<double> sumYOfEachCluster(k, 0);
+            for (auto point : points) {
+                sizeOfEachCluster[point.cluster] += 1;
+                sumXOfEachCluster[point.cluster] += point.x;
+                sumYOfEachCluster[point.cluster] += point.y;
+            }
+            for (int i=0; i<centroids.size(); i++) {
+                centroids[i].x = (sizeOfEachCluster[i] == 0) ? 0 : sumXOfEachCluster[i] / sizeOfEachCluster[i];
+                centroids[i].y = (sizeOfEachCluster[i] == 0) ? 0 : sumYOfEachCluster[i] / sizeOfEachCluster[i];
+            }
+
+            // 4. write to a file
+            ofstream file1;
+            file1.open("points_iter_" + to_string(e) + ".csv");
+            file1 << "x,y,clusterIdx" << endl;
+            for (auto point : points) {
+                file1 << point.x << "," << point.y << "," << point.cluster << endl;
+            }
+            file1.close();
+
+            ofstream file2;
+            file2.open("centroids_iter_" + to_string(e) + ".csv");
+            file2 << "x,y,clusterIdx" << endl;
+            for (auto centroid : centroids) {
+                file2 << centroid.x << "," << centroid.y << "," << centroid.cluster << endl;
+            }
+            file2.close();
+
+        }
+
+    }
+
+    int main() {
+        // [option 1] load csv
+        vector<Point> points = readCSV("./mall_customers.csv");
+        // [option 2] 
+        // vector<Point> points = {
+        //     {12, 39}, {20, 36}, {28, 30}, {18, 52}, {29, 54}, {33, 46}, {24, 55}, {45, 59}, {60, 35}, {52, 70},
+        //     {51, 66}, {52, 63}, {55, 58}, {53, 23}, {55, 58}, {53, 23}, {55, 14}, {61, 8}, {64, 19}, {69, 7}, {72, 24}
+        // };
+
+        kMeansClustering(points, 5, 6);
+
 
 
 
