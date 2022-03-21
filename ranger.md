@@ -262,3 +262,26 @@ une analyse plus approfondie. La version R est aussi rapide que la version C++ a
      predicted 2     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     
 
 
+### Regression Trees
+
+**CART (arbres de classification et de régression)**
+
+Régression :
+La fonction de coût qui est minimisée pour choisir les points de fractionnement est la somme de l'erreur quadratique sur tous les échantillons d'apprentissage compris dans le rectangle.
+
+Classification :
+La fonction de coût de Gini est utilisée pour fournir une indication de la pureté du nœud, où la pureté du nœud fait référence à la mixité des données d'apprentissage attribuées à chaque nœud.
+
+
+1. Indice de Gini (fonction de coût pour évaluer les divisions dans l'ensemble de données)
+2. Créer une division
+3. Construire un arbre
+
+    3.1 Nœuds terminaux (profondeur maximale de l'arborescence, nombre minimal d'enregistrements de nœuds)
+    
+    3.2 Découpage récursif
+    
+    3.3 Construire un arbre
+    
+    
+4. Faites une prédiction
