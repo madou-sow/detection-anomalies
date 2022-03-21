@@ -1,5 +1,4 @@
-
-#ranger : A Fast Implementation of Random Forests
+ ##ranger : A Fast Implementation of Random Forests
 
 Marvin N. Wright
 
