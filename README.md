@@ -20,5 +20,6 @@ A ce propos nous nous sommes orienté vers quelques programmes
   4. [Machine Learning From Scratch with C++](https://github.com/magikerwin1993/ML-From-Scratch-With-CPP)
      - 4.1 [K-Means](https://github.com/magikerwin1993/ML-From-Scratch-With-CPP/tree/main/k-means)
      - 4.2 [K-NN](https://github.com/magikerwin1993/ML-From-Scratch-With-CPP/tree/main/k-nn)
+     - 4.3 [REGRESSIONTREES](https://github.com/magikerwin1993/ML-From-Scratch-With-CPP/tree/main/RegressionTrees)
     
   
