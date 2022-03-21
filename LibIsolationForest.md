@@ -866,7 +866,9 @@ Algorithme
     }
     
     
-
+   **Exécution du programme**
+   
+   
         mamadou@port-lipn12:~/big-data/cerin24022022/cpp-LibIsolationForest/cpp
         ./isolationforestsimms 
         Test 1:
