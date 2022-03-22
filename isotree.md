@@ -1058,3 +1058,7 @@ Isolation Forest est un algorithme développé à l'origine pour la détection d
                                   real_t *Xr, sparse_ix *Xr_ind, sparse_ix *Xr_indptr,
                                   size_t nrows, int nthreads);
 
+**EXécution**
+
+        mamadou@port-lipn12:~/big-data/cerin24022022/cpp-isotree/example$./isotree_cpp_oop_ex 
+        Point with highest outlier score: [3, 3]
