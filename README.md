@@ -12,7 +12,7 @@ L’article sur HAL, lui, suppose que nous travaillons dans l’écosystème Pyt
 
 # Resultats DE NOS RECHERCHES
 
-A ce propos nous nous sommes orienté vers quelques programmes 
+A ce propos vérifions si ces programmes ne traitent pas déjà la question
 
   1. [ISOTREE](https://github.com/antaresatlantide/anomalie-detection/blob/main/isotree.md)
   2. [LIBISOLATIONFOREST](https://github.com/antaresatlantide/anomalie-detection/blob/main/LibIsolationForest.md)
