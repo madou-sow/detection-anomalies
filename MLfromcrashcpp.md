@@ -731,7 +731,7 @@ La fonction de coût de Gini est utilisée pour fournir une indication de la pur
             cout << "pred: " << pred << ", gt: " << data[data.size()-1] << endl;
         }
 
-**Éxécution**
+**Exécution**
 
       mamadou@port-lipn12:~/big-data/cerin24022022/ML-From-Scratch-With-CPP/RegressionTrees$ ./ClassificationRegressionTrees 
       depth: 0, featureIdx: 0, featureValue: 6.64229
