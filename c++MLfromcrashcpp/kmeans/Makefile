@@ -1,13 +1,11 @@
 CC=g++
 
-all: kmeansClusteringGroupPointrsDataset
-
-kmeansClusteringGroupPointrsDataset: kmeansClusteringGroupPointrsDataset.cpp
-	$(CC) kmeansClusteringGroupPointrsDataset.cpp -o kmeansClusteringGroupPointrsDataset
-
-run: kmeansClusteringGroupPointrsDataset
-	./kmeansClusteringGroupPointrsDataset
+all: main
+main: main.cpp
+	$(CC) main.cpp -o main
+run: main
+	./main
 
 clean:
-	#rm -f kmeansClusteringGroupPointrsDataset
+	#rm -f main
 	rm -f *o
