@@ -40,7 +40,7 @@ Méthodes se basant à la fois sur le type de jeux de données (flux, séries te
 - **Isolation Forest**, Isolation Forest ou IForest est une méthode basée sur les arbres de décision et les forêts aléatoires. Elle utilise l’isolation d’observations à partir de la construction de plusieurs arbres aléatoires. Quand une forêt d’arbres aléatoires et indépendants produit collectivement un chemin d’accès court pour atteindre une observation depuis la racine, celle-ci a une forte probabilité d’être une anomalie. Le nombre d’arbres utilisés est donc un important paramètre pour IForest. Le seuil de la détection est aussi un paramètre clé, il est donné par le score calculé pour chaque observation relativement aux autres observations.
 
 
-A ce propos vérifions si ces programmes ne traitent pas déjà la question
+À ce propos vérifions si ces programmes ne traitent pas déjà la question
 
   1. [ISOTREE](https://github.com/antaresatlantide/anomalie-detection/blob/main/isotree.md)
   2. [LIBISOLATIONFOREST](https://github.com/antaresatlantide/anomalie-detection/blob/main/LibIsolationForest.md)
