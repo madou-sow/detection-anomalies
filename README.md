@@ -10,7 +10,7 @@ Notre fond de commerce c’est de pouvoir exécuter sur des devices comme celui 
 
 L’article sur HAL, lui, suppose que nous travaillons dans l’écosystème Python (voir la communauté Tinyml (https://www.tinyml.org/) , voir micropython (https://micropython.org/), voir river cité dans l’article https://github.com/online-ml/river/ et https://scikit-multiflow.github.io/). C’est la vision un peu orthogonale à la notre. Nous n’allons pas aller dans cette direction.
 
-# Resultats DE NOS RECHERCHES
+# Résultats de nos RECHERCHES
 
 Différentes approches ont été conçues pour détecter anomalies : 
 - basées sur les statistiques, 
