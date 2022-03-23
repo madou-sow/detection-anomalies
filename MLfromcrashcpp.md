@@ -31,7 +31,7 @@ argmin∑i=1k∑x∈Si∥x−μi∥2
 #### L'algorithme des k-moyennes
 Le problème de clustering k-means est en fait incroyablement difficile à résoudre. Disons que nous avons juste N = 120 et k = 5, c'est-à-dire que nous avons 120 points de données que nous voulons regrouper en 5 clusters. Le nombre de partitions possibles est supérieur au nombre d'atomes dans l'univers (5120≈1083) – pour chacune, il faut alors calculer le WCSS (lire : variance) et choisir la meilleure partition.
 
-De toute évidence, tout type de solutions de force brute est insoluble (pour être précis, le problème a une complexité exponentielle). Il faut donc se tourner vers des solutions approchées. L'algorithme approximatif le plus célèbre est l'algorithme de Lloyd, qui est souvent appelé "l'algorithme des k-moyennes". Dans cet article, je vais faire taire mon pédant intérieur et utiliser de manière interchangeable les termes algorithme k-means et clustering k-means, mais il convient de rappeler qu'ils sont légèrement distincts. Cela mis à part, l'algorithme de Lloyd est incroyablement simple :
+De toute évidence, tout type de solutions de force brute est insoluble (pour être précis, le problème a une complexité exponentielle). Il faut donc se tourner vers des solutions approchées. L'algorithme approximatif le plus célèbre est l'algorithme de Lloyd, qui est souvent appelé "l'algorithme des k-Means". 
 
 1. Initialiser les clusters
 
