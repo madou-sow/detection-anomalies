@@ -14,19 +14,13 @@ Most of the machine learning implementations are based on python, and I hope to 
 
 ### [1 k-means](https://github.com/magikerwin1993/ML-From-Scatch-With-CPP/tree/main/k-means)
 
-J'ai une histoire un peu compliquée en ce qui concerne C++. Quand j'avais 15 ans et que j'apprenais à coder, je n'arrivais pas à choisir entre python et C++ et j'ai donc essayé d'apprendre les deux en même temps. L'un de mes premiers projets non triviaux était un programme C++ pour calculer des orbites - en y repensant maintenant, je peux voir que ce que je faisais réellement était une implémentation (horriblement inefficace) de la méthode d'Euler. Je ne pouvais tout simplement pas comprendre les tableaux de taille fixe (sans parler des pointeurs !). Dans tous les cas, j'ai vite réalisé que jongler avec C++ et python était intenable - non seulement j'étais nouveau dans les concepts (tels que les systèmes de types et la POO), mais je devais apprendre deux ensembles de syntaxe en plus de deux saveurs de ces concepts. J'ai décidé de m'engager dans Python et je n'ai pas vraiment regardé en arrière depuis.
-
-Maintenant, presque 6 ans plus tard (tempus fugit !), après avoir terminé le cours d'informatique de première année à Cambridge, j'ai l'impression d'être dans un bien meilleur endroit pour m'initier au C++. Ma motivation est aidée par le fait que tous les travaux pratiques de calcul de deuxième année pour la physique sont effectués en C++, sans compter que le C++ est incroyablement utile en finance quantitative (ce qui m'intéresse profondément).
-
-À cette fin, j'ai décidé de me lancer directement et d'implémenter un algorithme d'apprentissage automatique à partir de zéro. J'ai choisi k-means en raison de sa signification personnelle pour moi : lorsque j'ai découvert ML pour la première fois, k-means a été l'un des premiers algorithmes que j'ai pleinement étudié et j'ai passé un bon moment à expérimenter différentes modifications et implémentations en python. De plus, étant donné que l'objectif principal de cet article est d'apprendre le C++, il est logique d'utiliser un algorithme que je comprends relativement bien.
-
-S'il vous plaît, permettez-moi d'ajouter l'avertissement que cela ne sera certainement pas une solution optimale - ce message est vraiment un exercice d'apprentissage pour moi et je serais plus qu'heureux de recevoir des critiques constructives. Comme toujours, tout le code de ce projet se trouve sur GitHub.
+Implémenter un algorithme d'apprentissage automatique à partir de zéro avec k-means 
 
 #### Qu'est-ce que le clustering k-means ?
 
-J'ai décidé de donner quatre brèves explications avec une rigueur croissante. Rien au-delà de la première explication n'est vraiment essentiel pour la suite de cet article, alors n'hésitez pas à vous arrêter à tout moment.
-
 https://reasonabledeviations.com/2019/10/02/k-means-in-cpp/
+
+Brèves explications 
 
 1. Le clustering k-means nous permet de trouver des groupes de points similaires dans un ensemble de données.
 2. Le clustering k-means consiste à trouver des groupes de points dans un ensemble de données de sorte que la variance totale au sein des groupes soit minimisée.
