@@ -37,7 +37,6 @@ considérée comme une anomalie. Elle est aussi caractérisée comme l'observati
 sont censés être très différents des normaux. Ils sont également censés représentent une très petite proportion de l'ensemble des données. Ainsi, ils sont susceptibles être rapidement isolé. Certaines méthodes sont basées sur l'isolement. Les méthodes basées sur l'isolement sont différentes des autres statistiques, clustering ou plus proches approches voisines car elles ne calculent pas une distance ou une densité à partir de l'ensemble de données. Par conséquent, ils ont une complexité moindre et sont plus évolutifs. Ils ne souffrent pas du problème de CPU, de mémoire ou de consommation de temps. Ainsi, 
 les méthodes basées sur la lation sont adaptées au contexte du flux de données.
 
-
 A ce propos vérifions si ces programmes ne traitent pas déjà la question
 
   1. [ISOTREE](https://github.com/antaresatlantide/anomalie-detection/blob/main/isotree.md)
