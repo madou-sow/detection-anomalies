@@ -1,0 +1,21 @@
+g++ -Wall -O3 -o isotree_cpp_ex isotree_cpp_ex.cpp -std=c++11 -lgomp -fopenmp
+g++ -Wall -O3 -o isotree_cpp_ex isotree_cpp_ex.cpp -std=c++11 -lgomp -fopenmp -DRECURSION
+g++ -Wall -O3 -o isotree_cpp_ex isotree_cpp_ex.cpp -lgomp -std=c++11
+
+### 1 ###
+g++ -o isotree_cpp_ex isotree_cpp_ex.cpp $(ls ../src | grep ^[^R] | grep cpp | perl -pe 's/^(\w)/..\/src\/\1/') -I../src -std=c++11 -O3
+### 2 ###
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+sudo ldconfig
+
+g++ -o isotree_cpp_ex isotree_cpp_ex.cpp -lisotree -std=c++11
+### 3 ###
+g++ -o isotree_cpp_ex example/isotree_cpp_ex.cpp -std=c++11 -I./include -l:libisotree.so -L./build -Wl,-rpath,./build
+
+### 11 ###
+gcc -o isotree_c_ex isotree_c_ex.c -lisotree -std=c99 -lm
+
