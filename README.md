@@ -12,7 +12,7 @@ L’article sur HAL, lui, suppose que nous travaillons dans l’écosystème Pyt
 
 # Résultats de nos RECHERCHES
 
-**1. Concepts et notions**
+## 1. Concepts et notions
 
 La détection d'anomalies est une branche du forage de données qui s'occupe de l'identification des enregistrements atypiques ou des occurrences rares dans les
 données (Tan et al., 2006). En d'autres termes, la détection d'anomalies consiste à trouver les objets qui sont différents ou inconsistants par rapport à la majorité des objets d 'un jeu de données. Dans la littérature, les objets atypiques détectés sont dits anomalies, et sont aussi appelés, selon le contexte d'application, exceptions, surprises ou outliers (Aggarwal, 2017).
@@ -22,27 +22,27 @@ Initialement, la détection d'anomalies s'est développée dans les données à 
 
 La définition d'anomalie prend plus de sens lorsqu'elle est reliée à un contexte ou à une application bien spécifique. Particulièrement , la détection d'anomalies a été beaucoup appliquée pour dans la détection de fraude. Par ailleurs, la détection d'anomalies s'emploie aussi dans la détection des intrusions dans les réseaux d'ordinateurs. 
 
-**2. Détection d'anomalies dans les données vectorielles**
+## 2. Détection d'anomalies dans les données vectorielles
 
 Le techniques de détection d'anomalies dan les données vectorielles peuvent être catégorisées en trois types : méthodes à base de statistiques, méthodes à base de distance et méthodes à base de densité. 
 
-**2.1 Méthodes à base de statistiques**
+### 2.1 Méthodes à base de statistiques
 
 Les approches à base de statistiques consistent à élaborer des modèles statistiques probabilistes flexibles qui représentent la distribution des jeux de données testés comme les modèles gaussiens (Yamanishi et al., 2004) et les modèles de régression (Aggarwal, 2005) , (Li et Han , 2007). Le degré d'anomalie d'un objet particulier est évalué par rapport à sa conformité au modèle établi. Particulièrement, dans (Yamanishi et al., 2004), un modèle de mélange gaussien est proposé pour représenter la distribution des données testées. Chaque objet reçoit un score d'anomalie qui caractérise sa déviation au modèle. Un score élevé dénote une forte probabilité que l'objet en question soit une anomalie.
 
-**2.2 Méthodes à base de distance**
+### 2.2 Méthodes à base de distance
 
 Les méthodes à base de distance consistent à calculer la disparité entre les objets d'un ensemble de données. Pour mesurer l'hétérogénéité des objets, plusieurs métriques peuvent être employées comme la distance euclidienne et la distance de Manhattan. Un objet est considéré une anomalie s'il est remarquablement distant de la majorité d'objets.
 Spécifiquement les techniques à base de distance comme k plus proches voisins (Ramaswamy et al. , 2000) et KNN-pondéré (Angiulli et Pizzuti, 2002) assignent
 un score d'anomalie à chaque objet en se basant sur ses k plus proches voisins. De cette manière, étant distants , les anomalies ( outliers) reçoivent des scores élevés et les objets normaux ( inliers) reçoivent des scores faibles. Les anomalies sont discernées en triant les scores dans un ordre ascendant et en sélectionnant les observations ayant les scores les moins élevés.
 
-**2.3 Méthodes à base de densité**
+### 2.3 Méthodes à base de densité
 
 Les méthodes à base de densité mesurent le degré d'anomalie d'un objet en considérant la densité locale de son voisinage. Spécifiquement, l'exemple de calcul du score d'anomalie LOF (Local Outlier Factor) (Breunig et al., 2000). Le fondement de LOF a été inspiré de la méthode de partitionnement à base de densité DBSCAN qui identifie à la fois les communautés et les outliers (Ester et al., 1996). Dans LOF, la densité locale de chaque objet se calcule en respect de
 ses k plus proches voisins. L'ensemble des distances d'un objet particulier à ses k plus proches voisins sont utilisées dans le calcul de sa densité locale. Les densités locales de tous les objets sont, ensuite, évaluées pour déterminer les régions de densité similaires et les objets outliers qui détiennent des densités locales remarquablement faibles par rapport à leurs voisinages. 
 Les techniques présentées dans cette section ne représentent pas une liste exhaustive des méthodes de détection d'anomalies dans les données vectorielles. 
 
-**3. Détection d'anomalies dans les graphes**
+## 3. Détection d'anomalies dans les graphes
 
 Récemment, un grand intérêt a été porté à l'élaboration de techniques qui traitent
 les anomalies dans les graphes, et ce vu leur expressivité et leur capacité à représen-
