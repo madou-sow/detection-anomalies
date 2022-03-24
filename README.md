@@ -12,10 +12,10 @@ L’article sur HAL, lui, suppose que nous travaillons dans l’écosystème Pyt
 
 # Résultats de nos RECHERCHES
 
-Différentes approches ont été conçues pour détecter anomalies : 
-- basées sur les statistiques, 
-- basées sur le clustering,
-- basées sur l'isolement 
+Différentes approches ont été conçues pour détecter anomalies basées sur : 
+- les statistiques, 
+- le clustering,
+- l'isolement 
 
 # Classification des approches et des méthodes
 
@@ -25,7 +25,7 @@ présente ci-dessous. Nous privilégierons une approche basée sur l'isolement :
 **Basé sur les statistiques** : Les approches basées sur les statistiques établissent généralement un modèle qui caractérise le comportement normal basé sur l'ensemble de données. Les nouvelles données entrantes qui ne correspondent pas au modèle ou qui ont une très faible probabilité de correspondre au modèle sont considéré comme anormal. Certaines méthodes attribuent un score aux données en fonction de l'écarttion du modèle. Les méthodes basées sur les statistiques peuvent être paramétriques dans auquel cas ils doivent avoir une connaissance préalable de la distribution de l'ensemble de données.
 Ils peuvent être non paramétriques où ils apprennent de l'ensemble de données donné pour en déduire la distribution sous-jacente. 
 
-**Basé sur le clustering et basé sur les voisins les plus proches** : Clustering et plus proche voisin sont basées sur la proximité entre les observations. les méthodes de cette catégorie sont basées soit sur la distance (fondée sur la distance) soit la densité (basée sur la densité). Les méthodes de clustering divisent l'ensemble de données en différents clusters selon la similarité entre les observations. Le plus éloigné cluster ou le cluster qui a la plus petite densité peut être considéré comme un groupe d'anomalies. Les méthodes des plus proches voisins déterminent les voisins d'une observation en calculant la distance entre toutes les observations de la base de données. L'observation qui est éloignée de ses k plus proches voisins peut être con-
+**Basé sur le clustering et sur les voisins les plus proches** : Clustering et le plus proche voisin sont basées sur la proximité entre les observations. les méthodes de cette catégorie sont basées soit sur la distance (fondée sur la distance) soit la densité (basée sur la densité). Les méthodes de clustering divisent l'ensemble de données en différents clusters selon la similarité entre les observations. Le plus éloigné cluster ou le cluster qui a la plus petite densité peut être considéré comme un groupe d'anomalies. Les méthodes des plus proches voisins déterminent les voisins d'une observation en calculant la distance entre toutes les observations de la base de données. L'observation qui est éloignée de ses k plus proches voisins peut être con-
 considérée comme une anomalie. Elle est aussi caractérisée comme l'observation qui a le moins de voisins dans un rayon r (un paramètre fixe). Ces approches ont besoin de calculer la distance ou la densité entre toutes les observations dans le ensemble de données ou ils doivent avoir des connaissances préalables sur l'ensemble de données. Afin qu'ils peut souffrir d'une forte consommation de CPU, de temps et de mémoire ou d'un manque d'informations.
 
 **Isolation-based** : le principe de l'isolation-based approche consiste à isoler les observations anormales de l'ensemble de données. Données d'anomalies
