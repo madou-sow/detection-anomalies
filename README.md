@@ -51,23 +51,13 @@ L'algorithme SCAN nécessite un paramétrage pour pouvoir identifier les communa
 Dans la littérature, nous trouvons, également, SHRINK qui est un algorithme de partitionnement hiérarchique. Cet algorithme identifie les communautés et les
 outliers sans la nécessité de paramétrage en reposant sur le principe de réduction. Plus précisément, l'algorithme commence par identifier les pairs de nœuds denses, c.-à-d. les nœuds dont la similarité structurale est maximale par rapport à leurs voisinages. Ensuite, une fusion se fait entre les pairs de nœuds denses identifiés pour construire itérativement des microcommunautés. De ce fait, une microcommunauté peut être un nœud isolé ou un sous-graphe d 'un ou plusieurs pairs de nœuds denses connectés. Au fur et à mesure des itérations, un arbre hiérarchique d'emboîtement des microcommunautés se construit.
 
-## Classification des approches et des méthodes
+## 4. Deep learning 
 
-Généralement, les méthodes de détection d'anomalies sont basées sur le fait que les anomalies sont rares et ont un comportement différent par rapport aux données normales. Ces caractéristiques sont vraies pour les ensembles de données statiques et également pour les flux de données. Les approches de détection d'anomalies les plus utilisées sont les statistiques, le clustering et l'isolement que nous allons présente ci-dessous. 
+il représente une classe d’algorithmes d’apprentissage automatique supervisé ou non supervisé basés sur l’utilisation de plusieurs couches d’unité de traitement non linéaire. Parmi ces méthodes on cite les auto-encoders (AE) et One-Class Neural Networks (OC-NN) (Chalapathy et Chawla (2019)).
 
-**Basé sur les statistiques** : Les approches basées sur les statistiques établissent généralement un modèle qui caractérise le comportement normal basé sur l'ensemble de données. Les nouvelles données entrantes qui ne correspondent pas au modèle ou qui ont une très faible probabilité de correspondre au modèle sont considéré comme anormal. Certaines méthodes attribuent un score aux données en fonction de l'écarttion du modèle. Les méthodes basées sur les statistiques peuvent être paramétriques dans auquel cas ils doivent avoir une connaissance préalable de la distribution de l'ensemble de données.
-Ils peuvent être non paramétriques où ils apprennent de l'ensemble de données donné pour en déduire la distribution sous-jacente. 
+## 5. Autres techniques
 
-**Basé sur le clustering et sur les voisins les plus proches** : Clustering et le plus proche voisin sont basées sur la proximité entre les observations. les méthodes de cette catégorie sont basées soit sur la distance (fondée sur la distance) soit la densité (basée sur la densité). Les méthodes de clustering divisent l'ensemble de données en différents clusters selon la similarité entre les observations. Le plus éloigné cluster ou le cluster qui a la plus petite densité peut être considéré comme un groupe d'anomalies. Les méthodes des plus proches voisins déterminent les voisins d'une observation en calculant la distance entre toutes les observations de la base de données. L'observation qui est éloignée de ses k plus proches voisins peut être con-
-considérée comme une anomalie. Elle est aussi caractérisée comme l'observation qui a le moins de voisins dans un rayon r (un paramètre fixe). Ces approches ont besoin de calculer la distance ou la densité entre toutes les observations dans le ensemble de données ou ils doivent avoir des connaissances préalables sur l'ensemble de données. Afin qu'ils peut souffrir d'une forte consommation de CPU, de temps et de mémoire ou d'un manque d'informations.
-
-**Isolation-based** : le principe de l'isolation-based approche consiste à isoler les observations anormales de l'ensemble de données. Données d'anomalies
-sont censés être très différents des normaux. Ils sont également censés représentent une très petite proportion de l'ensemble des données. Ainsi, ils sont susceptibles être rapidement isolé. Certaines méthodes sont basées sur l'isolement. Les méthodes basées sur l'isolement sont différentes des autres statistiques, clustering ou plus proches approches voisines car elles ne calculent pas une distance ou une densité à partir de l'ensemble de données. Par conséquent, ils ont une complexité moindre et sont plus évolutifs. Ils ne souffrent pas du problème de CPU, de mémoire ou de consommation de temps. Ainsi, 
-les méthodes basées sur la lation sont adaptées au contexte du flux de données.
-
-**Deep learning** : il représente une classe d’algorithmes d’apprentissage automatique supervisé ou non supervisé basés sur l’utilisation de plusieurs couches d’unité de traitement non linéaire. Parmi ces méthodes on cite les auto-encoders (AE) et One-Class Neural Networks (OC-NN) (Chalapathy et Chawla (2019)).
-
-**Autres techniques** : basées sur les machines à vecteurs de support (Schölkopf et al. (2000), les réseaux de neurones (Hodge et Austin
+Basées sur les machines à vecteurs de support (Schölkopf et al. (2000), les réseaux de neurones (Hodge et Austin
 (2004)), les méthodes adaptées aux grandes dimensions par construction de sous-espaces ou par réduction de dimension (Aggarwal (2017)).
 
 
