@@ -7,7 +7,7 @@ Isolation Forest est un algorithme développé à l'origine pour la détection d
 
 # L'algorithme en Langage C++
 
-Description de la l'algorithme
+Description de l'algorithme
 
 1. Données aléatoires d'une distribution normale standard (100 points générés aléatoirement, plus 1 valeur aberrante ajoutée manuellement) La bibliothèque suppose qu'il est passé en tant que pointeur unidimensionnel, suivant l'ordre des colonnes majeures (comme Fortran)
 
