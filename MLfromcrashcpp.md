@@ -198,7 +198,7 @@ Nous recalculons ensuite à plusieurs reprises les centroïdes et réattribuons 
 
         kMeansClustering(points, 5, 6);
 
-**Éxécution**
+**Exécution**
 
 
         mamadou@port-lipn12:~/big-data/cerin24022022/ML-From-Scratch-With-CPP/k-means$ cat mall_customers.csv 
