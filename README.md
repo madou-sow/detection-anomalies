@@ -67,6 +67,11 @@ Basées sur les machines à vecteurs de support (Schölkopf et al. (2000), les r
 (2004)), les méthodes adaptées aux grandes dimensions par construction de sous-espaces ou par réduction de dimension (Aggarwal (2017)).
 
 
+## 7. Récapitilatif de la Classification des différentes techniques de détection d’anomalies
+
+
+
+
 ## Méthodes  expérimentales de détection d’anomalies très utilisées dans la littérature
 
 Méthodes se basant à la fois sur le type de jeux de données (flux, séries temporelles, graphes, etc.), le domaine d’application et l’approche considérée (statistique, classification, clustering, etc.). Trois algorithmes : 
