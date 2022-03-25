@@ -67,7 +67,7 @@ Basées sur les machines à vecteurs de support (Schölkopf et al. (2000), les r
 (2004)), les méthodes adaptées aux grandes dimensions par construction de sous-espaces ou par réduction de dimension (Aggarwal (2017)).
 
 
-## 7. Récapitilatif de la Classification des différentes techniques de détection d’anomalies
+## 7. Récapitulatif de la Classification des différentes techniques de détection d’anomalies
 
  ![Classification des différentes techniques de détection d’anomalies](/images/recapt-detect-anom.png)
 
