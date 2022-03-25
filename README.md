@@ -72,9 +72,13 @@ Basées sur les machines à vecteurs de support (Schölkopf et al. (2000), les r
  <!-- ![Classification des différentes techniques de détection d’anomalies](/images/recapt-detect-anom.png) -->
 
 <p align="center">       
-        <img src="images/recapt-detect-anom.png" alt="Classification des différentes techniques de détection d’anomalies">
-      
+        <img src="images/recapt-detect-anom.png" alt="Classification des différentes techniques de détection d’anomalies"> 
 </p>
+
+<p align="center">       
+        <img src="images/recap-data-stream-anom.png" alt="Classification des différentes techniques de détection d’anomalies"> 
+</p>
+
 
 
 ## Méthodes  expérimentales de détection d’anomalies très utilisées dans la littérature
