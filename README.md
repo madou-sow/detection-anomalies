@@ -75,6 +75,8 @@ Basées sur les machines à vecteurs de support (Schölkopf et al. (2000), les r
         <img src="images/recapt-detect-anom.png" alt="Classification des différentes techniques de détection d’anomalies"> 
 </p>
 
+## 8.Classification of data stream anomaly detection methods
+
 <p align="center">       
         <img src="images/recap-data-stream-anom.png" alt="Classification des différentes techniques de détection d’anomalies"> 
 </p>
