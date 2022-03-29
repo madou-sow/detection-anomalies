@@ -1229,6 +1229,10 @@ Ce référentiel est l'implémentation officielle de l'article Online Learning D
 
 > **Motivations :** L'objectif est de proposer une plate-forme pour fournir un pont transparent entre les activités centrées sur la science des données et les activités d'ingénierie des données, de manière à satisfaire à la fois les contraintes de production imposées en termes d'évolutivité et les exigences des applications de streaming en termes d'apprentissage en ligne. Des exemples de cas d'utilisation potentiels peuvent être la détection d'anomalies et de fraudes pour les flux de données évoluant dans le temps ou la classification en temps réel des activités des utilisateurs ou des événements informatiques ou de journaux. Cela peut être un véritable accélérateur pour gagner en pro-activité dans la résolution de problèmes réels.
 
+**Outils : RIVER, Kafka & Domino Platform on AWS**
+> River [1] est une bibliothèque d'apprentissage automatique en ligne open source écrite en Python dont l'objectif principal est l'apprentissage incrémentiel d'instance, ce qui signifie que chaque composant (estimateurs, transformateurs, métriques de performance, etc.) est conçu pour être mis à jour un échantillon à la fois. . Nous avons utilisé River pour former et mettre à jour en continu le modèle d'apprentissage en ligne à partir des derniers flux de données. KAFKA est une plate-forme de streaming d'événements distribués open source à la pointe de la technologie et nous avons utilisé un Kafka hébergé géré (confluent). Nous l'avons utilisé comme générateur de flux de données.
+
+>La plate-forme Domino Platform est implémentée au-dessus de Kubernetes, où elle fait tourner des conteneurs à la demande pour exécuter les charges de travail des utilisateurs. Les conteneurs sont basés sur des images Docker, qui sont entièrement personnalisables. Nous avons utilisé Domino pour héberger les modèles et exécuter des tests d'évolutivité sur des données à haute vitesse générées sous forme de flux.
 
 
 # Résultats de nos RECHERCHES
