@@ -18,7 +18,8 @@ L’article sur HAL, lui, suppose que nous travaillons dans l’écosystème Pyt
 
 3. streaming-online-learning
 
-## iForestASD_Streaming_Scikit-MultiFlow.py
+## iForestASD_Streaming_Scikit-MultiFlow
+### iForestASD_Streaming_Scikit-MultiFlow.py
 
         # -*- coding: utf-8 -*-
       """Notebook_test_iForestASD_Scikitmultiflow.ipynb
@@ -479,6 +480,121 @@ L’article sur HAL, lui, suppose que nous travaillons dans l’écosystème Pyt
                   return path_length_tree(x, t.left, e+1)
               if x[a] >= t.split_value :
                   return path_length_tree(x, t.right, e+1)
+
+### functions.py
+                #!/usr/bin/env python3
+                # -*- coding: utf-8 -*-
+                """
+                Created on Sun Mar 22 20:22:15 2020
+
+                @author: http://localhost:8888/edit/cerin24022022/py-mariambarry/iForestASD_Streaming_Scikit-MultiFlow/Notebook_24032020_2325/functions.py
+                """
+
+                class Comparison:
+
+                  def __init__(self):
+
+                        super().__init__()
+
+                  #The goal of this function is to execute the models and show the differents results. 
+                  #It is the function to call when we want to test differents models 
+                  #with differents values for parameters
+                  def run_comparison(self, stream, stream_n_features, window = 100, 
+                                     estimators = 50, anomaly = 0.5, drift_rate = 0.3, 
+                                     result_folder="Generated", max_sample=100000, n_wait=200,
+                                     metrics=['accuracy', 'f1', 'kappa', 'kappa_m', 
+                                              'running_time','model_size']):
+
+                    from skmultiflow.anomaly_detection import HalfSpaceTrees
+                    from iforestasd_scikitmultiflow import IsolationForestStream
+                    from skmultiflow.evaluation.evaluate_prequential import EvaluatePrequential
+
+                    # Creation f the result csv
+                    # sow directory_path = 'results/'+str(result_folder)
+                    directory_path = '/home/mamadou/big-data/cerin24022022/mariambarry/iForestASD_Streaming_Scikit-MultiFlow/Notebook_24032020_2325/results/'+str(result_folder)
+                    self.check_directory(path=directory_path)
+                    result_file_path = directory_path+'/result_for_WS'+str(window)+'_NE'+str(estimators)+'.csv'
+
+                    # 2. Prepare for use This function is usefull to have data window by window
+                    # stream.prepare_for_use() # Deprecated so how to prepare data?
+
+                    models = [HalfSpaceTrees(n_features=stream_n_features, window_size=window, 
+                                             n_estimators=estimators, anomaly_threshold=anomaly),
+                    #IForest ASD use all the window_size for the sample in the training phase
+                    IsolationForestStream(window_size=window, n_estimators=estimators, 
+                                          anomaly_threshold=anomaly, drift_threshold=drift_rate)]
+                    # Setup the evaluator
+                    evaluator = EvaluatePrequential(pretrain_size=1, max_samples=max_sample, 
+                                                    show_plot=True, 
+                                                    metrics=metrics, batch_size=1, 
+                                                    output_file = result_file_path,
+                                                    n_wait = n_wait) 
+                    # 4. Run the evaluation 
+                    evaluator.evaluate(stream=stream, model=models, model_names=['HSTrees','iForestASD'])
+                    print("")
+                    print("Please find evaluation results here "+result_file_path)
+                    return 
+
+                  def get_dataset(self, dataset_name="Generator", classification_function=0, 
+                                  noise_percentage=0.7, random_state=1):
+                      #Dataset
+                      #  Name M(#instances) N(#attributes) Anomaly
+                      #  Threshold
+                      #  Http 567498 3 0.39%
+                      #  Smtp 95156 3 0.03%
+                      #  ForestCover 286048 10 0.96%
+                      #  Shuttle 49097 9 7.15%
+                      if dataset_name=="Generator":
+                         return self.get_data_generated(classification_function, 
+                                                        noise_percentage, random_state);
+                      elif dataset_name=="HTTP":
+                         path = "/home/mamadou/big-data/cerin24022022/mariambarry/iForestASD_Streaming_Scikit-MultiFlow/Notebook_24032020_2325/datasets/HTTP.csv"
+                         return self.get_file_stream(path);
+                      elif dataset_name=="ForestCover":
+                         path = "/home/mamadou/big-data/cerin24022022/mariambarry/iForestASD_Streaming_Scikit-MultiFlow/Notebook_24032020_2325/datasets/ForestCover.csv"
+                         return self.get_file_stream(path);
+                      elif dataset_name=="Shuttle":
+                         path = "/home/mamadou/big-data/cerin24022022/mariambarry/iForestASD_Streaming_Scikit-MultiFlow/Notebook_24032020_2325/datasets/Shuttle.csv"
+                         return self.get_file_stream(path);
+                      elif dataset_name=="SMTP":
+                         path = "/home/mamadou/big-data/cerin24022022/mariambarry/iForestASD_Streaming_Scikit-MultiFlow/Notebook_24032020_2325/datasets/SMTP.csv"
+                         return self.get_file_stream(path);
+                      else:
+                         print("The specified dataset do not exist yet."+ 
+                               " Try to contact the administrator for any add. "+
+                               " Or choose between these datasets:['Generator','HTTP','ForestCover','Shuttle','SMTP']");
+                         return None
+
+                  def get_file_stream(self, path):
+                      from skmultiflow.data.file_stream import FileStream
+                      return FileStream(path, n_targets=1, target_idx=-1)
+
+                  def get_data_stream(self, path):
+                      from skmultiflow.data.data_stream import DataStream
+                      return
+
+
+                  def get_data_generated(self,classification_function, noise_percentage, random_state):
+                      from skmultiflow.data import SEAGenerator
+                      return SEAGenerator(classification_function=classification_function, 
+                                          noise_percentage=noise_percentage, random_state=random_state)
+
+
+                  #To transform datasets by replace anomaly label by 1 and normal label by 0
+                  def prepare_dataset_for_anomaly(self, full_dataset, y_column:int, 
+                                                  anomaly_label:str='\'Anomaly\'', file_name:str="new"):
+                      import numpy as np
+                      import pandas as pd
+                      full_dataset[y_column] = np.where(full_dataset[y_column]==anomaly_label,1,0)
+                      dataset = pd.DataFrame(full_dataset)
+                      dataset.drop([0], inplace=True)
+                      full_file_path = "/home/mamadou/big-data/cerin24022022/mariambarry/iForestASD_Streaming_Scikit-MultiFlow/Notebook_24032020_2325/datasets/"+file_name+".csv"
+                      dataset.to_csv(full_file_path, index=None, header=True)
+                      return dataset
+
+                  def check_directory(self,path):
+                      from pathlib import Path
+                      Path(path).mkdir(parents=True, exist_ok=True) 
 
 # Résultats de nos RECHERCHES
 
