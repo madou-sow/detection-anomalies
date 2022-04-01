@@ -1268,7 +1268,13 @@ Ce référentiel est l'implémentation officielle de l'article Online Learning D
 > **tinyML :** 
 >> L'apprentissage automatique minuscule (**tinyML**) est généralement défini comme un domaine en croissance rapide des technologies et des applications d'apprentissage automatique, y compris le matériel (circuits intégrés dédiés), les algorithmes et les logiciels capables d'effectuer des analyses de données de capteurs sur l'appareil (vision, audio, IMU, biomédical, etc.) à une puissance extrêmement faible, généralement dans la plage des mW et moins, et permettant ainsi une variété de cas d'utilisation toujours actifs et ciblant les appareils fonctionnant sur batterie.
 
->> Le premier sommet tinyML en mars 2019 a montré un très vif intérêt de la part de la communauté avec la participation active d'experts seniors de 90 entreprises. Il a révélé que : (i) le petit matériel capable d'apprendre par machine devient "assez bon" pour de nombreuses applications commerciales et de nouvelles architectures (par exemple, le calcul en mémoire) sont à l'horizon ; (ii) des progrès significatifs sur les algorithmes, les réseaux et les modèles jusqu'à 100 Ko et moins ; et (iii) les applications initiales à faible puissance dans l'espace de la vision et de l'audio. Il y a une dynamique croissante démontrée par le progrès technique et le développement de l'écosystème.
+>> Le premier sommet tinyML en mars 2019 a montré un très vif intérêt de la part de la communauté avec la participation active d'experts seniors de 90 entreprises. Il a révélé que : 
+
+>>> (i) le petit matériel capable d'apprendre par machine devient "assez bon" pour de nombreuses applications commerciales et de nouvelles architectures (par exemple, le calcul en mémoire) sont à l'horizon ; 
+ 
+>>> (ii) des progrès significatifs sur les algorithmes, les réseaux et les modèles jusqu'à 100 Ko et moins ; 
+
+>>> (iii) les applications initiales à faible puissance dans l'espace de la vision et de l'audio. Il y a une dynamique croissante démontrée par le progrès technique et le développement de l'écosystème.
 
 >> La communauté tinyML continue de croître grâce à de multiples événements de haute qualité – en personne et en ligne – tout au long de l'année, notamment le sommet tinyML, tinyML EMEA, tinyML Asia, tinyML Talks et les meetups tinyML.
 
