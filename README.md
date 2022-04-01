@@ -12,6 +12,8 @@ L’article sur HAL, lui, suppose que nous travaillons dans l’écosystème Pyt
 
 # Détails de l'Article Mariam Barry & al.
 
+https://github.com/MariamBARRY
+
 1. iForestASD_Streaming_Scikit-MultiFlow
 
 2. skmultiflow_IForestASD
