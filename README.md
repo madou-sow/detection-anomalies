@@ -1243,9 +1243,13 @@ MicroPython vise à être aussi compatible que possible avec Python normal pour 
 
 > **scikit-multiflow**:
 >>Apprentissage incrémental : Les modèles d'apprentissage par flux sont créés progressivement et mis à jour en permanence. Ils conviennent aux applications Big Data où la réponse en temps réel est vitale.
+
 >>Apprentissage adaptatif : Les changements dans la distribution des données nuisent à l'apprentissage. Les méthodes adaptatives sont spécifiquement conçues pour être robustes aux changements de dérive de concept dans des environnements dynamiques.
+
 >>Efficace sur le plan des ressources : Les techniques de streaming gèrent efficacement les ressources telles que la mémoire et le temps de traitement étant donné la nature illimitée des flux de données.
+
 >>Facile à utiliser : scikit-multiflow est conçu pour les utilisateurs de tout niveau d'expérience. Les expériences sont faciles à concevoir, à configurer et à exécuter. Les méthodes existantes sont faciles à modifier et à étendre.
+
 >>Outils d'apprentissage en streaming : Dans son état actuel, scikit-multiflow contient des générateurs de données, des méthodes d'apprentissage de flux multi-sorties/multi-cibles, des méthodes de détection de changement, des méthodes d'évaluation, etc.
 
 # Résultats de nos RECHERCHES
