@@ -1245,7 +1245,8 @@ Ce référentiel est l'implémentation officielle de l'article Online Learning D
 
 ## Quelques définitions 
 
-> **MicroPython :** MicroPython est une implémentation légère et efficace du langage de programmation Python 3 qui inclut un petit sous-ensemble de la bibliothèque standard Python et est optimisée pour s'exécuter sur des microcontrôleurs et dans des environnements contraints.
+> **MicroPython :** 
+>> MicroPython est une implémentation légère et efficace du langage de programmation Python 3 qui inclut un petit sous-ensemble de la bibliothèque standard Python et est optimisée pour s'exécuter sur des microcontrôleurs et dans des environnements contraints.
 
 >> Le pyboard MicroPython est une carte électronique compacte qui exécute MicroPython sur le métal nu, vous offrant un système d'exploitation Python de bas niveau qui peut être utilisé pour contrôler toutes sortes de projets électroniques.
 
