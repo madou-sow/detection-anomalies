@@ -604,8 +604,9 @@ L’article sur HAL, lui, suppose que nous travaillons dans l’écosystème Pyt
                       
 ## skmultiflow_IForestASD
 
-**iforestasd_scikitmultiflow.py**
+[**iforestasd_scikitmultiflow.py**](python/iforestasd_scikitmultiflow1.py)
 
+<!--
                         # -*- coding: utf-8 -*-
                         """Notebook_test_iForestASD_Scikitmultiflow.ipynb
 
@@ -1065,10 +1066,11 @@ L’article sur HAL, lui, suppose que nous travaillons dans l’écosystème Pyt
                             return path_length_tree(x, t.left, e+1)
                         if x[a] >= t.split_value :
                             return path_length_tree(x, t.right, e+1)
-                            
+ -->                           
     
-**functions.py**
+[**functions.py**](python/functions1.py)
 
+<!--
                 #!/usr/bin/env python3
                 # -*- coding: utf-8 -*-
                 """
@@ -1228,7 +1230,8 @@ L’article sur HAL, lui, suppose que nous travaillons dans l’écosystème Pyt
                     df_forest.sort_values(by = ['window', 'estimators'], inplace= True)
 
                     return df_forest
- 
+--> 
+
 ## streaming-online-learning
 
 Ce référentiel est l'implémentation officielle de l'article Online Learning Deployment for Streaming Applications in the Banking Sector (Barry, Montiel, Bifet, Chiky, Shakman, Manchev, Wadkar, El Baroudi, Tran, KDD 2021). Les ressources peuvent être utilisées pour configurer et déployer des instances de modèles d'apprentissage automatique en ligne, pour générer des prédictions et mettre à jour les poids du modèle sur les données en continu.
