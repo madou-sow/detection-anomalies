@@ -1234,6 +1234,14 @@ Ce référentiel est l'implémentation officielle de l'article Online Learning D
 
 >La plate-forme Domino Platform est implémentée au-dessus de Kubernetes, où elle fait tourner des conteneurs à la demande pour exécuter les charges de travail des utilisateurs. Les conteneurs sont basés sur des images Docker, qui sont entièrement personnalisables. Nous avons utilisé Domino pour héberger les modèles et exécuter des tests d'évolutivité sur des données à haute vitesse générées sous forme de flux.
 
+## quelques définitions 
+
+> **MicroPython :** MicroPython est une implémentation légère et efficace du langage de programmation Python 3 qui inclut un petit sous-ensemble de la bibliothèque standard Python et est optimisée pour s'exécuter sur des microcontrôleurs et dans des environnements contraints.
+Le pyboard MicroPython est une carte électronique compacte qui exécute MicroPython sur le métal nu, vous offrant un système d'exploitation Python de bas niveau qui peut être utilisé pour contrôler toutes sortes de projets électroniques.
+MicroPython regorge de fonctionnalités avancées telles qu'une invite interactive, des entiers de précision arbitraires, des fermetures, la compréhension de liste, des générateurs, la gestion des exceptions, etc. Pourtant, il est suffisamment compact pour s'adapter et fonctionner dans seulement 256 Ko d'espace de code et 16 Ko de RAM.
+MicroPython vise à être aussi compatible que possible avec Python normal pour vous permettre de transférer facilement du code du bureau vers un microcontrôleur ou un système embarqué.
+
+> 
 
 # Résultats de nos RECHERCHES
 
