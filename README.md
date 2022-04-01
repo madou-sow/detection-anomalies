@@ -1288,7 +1288,7 @@ il représente une classe d’algorithmes d’apprentissage automatique supervis
 
 ## 6. Autres techniques
 
-Basées sur les machines à vecteurs de support (Schölkopf et al. (2000), les réseaux de neurones (Hodge et Austin
+Basées sur les machines à vecteurs de support (Schölkopf et al. (2000)), les réseaux de neurones (Hodge et Austin
 (2004)), les méthodes adaptées aux grandes dimensions par construction de sous-espaces ou par réduction de dimension (Aggarwal (2017)).
 
 
