@@ -19,7 +19,7 @@ L’article sur HAL, lui, suppose que nous travaillons dans l’écosystème Pyt
 3. streaming-online-learning
 
 ## iForestASD_Streaming_Scikit-MultiFlow
-### [iForestASD_Streaming_Scikit-MultiFlow.py](python/iforestasd_scikitmultiflow.py)
+[**iForestASD_Streaming_Scikit-MultiFlow.py**](python/iforestasd_scikitmultiflow.py)
 
 <!--
         # -*- coding: utf-8 -*-
@@ -484,7 +484,7 @@ L’article sur HAL, lui, suppose que nous travaillons dans l’écosystème Pyt
  
 -->
 
-### [functions.py](python/functions.py)
+[**functions.py**](python/functions.py)
 
 <!--
                 #!/usr/bin/env python3
