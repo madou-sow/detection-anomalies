@@ -482,7 +482,7 @@ L’article sur HAL, lui, suppose que nous travaillons dans l’écosystème Pyt
               if x[a] >= t.split_value :
                   return path_length_tree(x, t.right, e+1)
  
- '''
+'''
 
 ### [functions.py](python/functions.py)
 
