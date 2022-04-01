@@ -21,6 +21,7 @@ L’article sur HAL, lui, suppose que nous travaillons dans l’écosystème Pyt
 ## iForestASD_Streaming_Scikit-MultiFlow
 ### [iForestASD_Streaming_Scikit-MultiFlow.py](python/iforestasd_scikitmultiflow.py)
 
+'''
         # -*- coding: utf-8 -*-
       """Notebook_test_iForestASD_Scikitmultiflow.ipynb
 
@@ -480,8 +481,12 @@ L’article sur HAL, lui, suppose que nous travaillons dans l’écosystème Pyt
                   return path_length_tree(x, t.left, e+1)
               if x[a] >= t.split_value :
                   return path_length_tree(x, t.right, e+1)
+ 
+ '''
 
 ### [functions.py](python/functions.py)
+
+'''
                 #!/usr/bin/env python3
                 # -*- coding: utf-8 -*-
                 """
@@ -595,6 +600,7 @@ L’article sur HAL, lui, suppose que nous travaillons dans l’écosystème Pyt
                   def check_directory(self,path):
                       from pathlib import Path
                       Path(path).mkdir(parents=True, exist_ok=True) 
+'''
                       
 ## skmultiflow_IForestASD
 
