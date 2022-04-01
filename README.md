@@ -1237,9 +1237,12 @@ Ce référentiel est l'implémentation officielle de l'article Online Learning D
 ## Quelques définitions 
 
 > **MicroPython :** MicroPython est une implémentation légère et efficace du langage de programmation Python 3 qui inclut un petit sous-ensemble de la bibliothèque standard Python et est optimisée pour s'exécuter sur des microcontrôleurs et dans des environnements contraints.
-Le pyboard MicroPython est une carte électronique compacte qui exécute MicroPython sur le métal nu, vous offrant un système d'exploitation Python de bas niveau qui peut être utilisé pour contrôler toutes sortes de projets électroniques.
-MicroPython regorge de fonctionnalités avancées telles qu'une invite interactive, des entiers de précision arbitraires, des fermetures, la compréhension de liste, des générateurs, la gestion des exceptions, etc. Pourtant, il est suffisamment compact pour s'adapter et fonctionner dans seulement 256 Ko d'espace de code et 16 Ko de RAM.
-MicroPython vise à être aussi compatible que possible avec Python normal pour vous permettre de transférer facilement du code du bureau vers un microcontrôleur ou un système embarqué.
+
+>> Le pyboard MicroPython est une carte électronique compacte qui exécute MicroPython sur le métal nu, vous offrant un système d'exploitation Python de bas niveau qui peut être utilisé pour contrôler toutes sortes de projets électroniques.
+
+>> MicroPython regorge de fonctionnalités avancées telles qu'une invite interactive, des entiers de précision arbitraires, des fermetures, la compréhension de liste, des générateurs, la gestion des exceptions, etc. Pourtant, il est suffisamment compact pour s'adapter et fonctionner dans seulement 256 Ko d'espace de code et 16 Ko de RAM.
+
+>> MicroPython vise à être aussi compatible que possible avec Python normal pour vous permettre de transférer facilement du code du bureau vers un microcontrôleur ou un système embarqué.
 
 > **scikit-multiflow**:
 >>Apprentissage incrémental : Les modèles d'apprentissage par flux sont créés progressivement et mis à jour en permanence. Ils conviennent aux applications Big Data où la réponse en temps réel est vitale.
