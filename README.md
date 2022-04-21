@@ -1371,6 +1371,6 @@ Nous privilégierons une approche basée sur l'isolement : Isolation Forest.
   4. [Machine Learning From Scratch with C++](https://github.com/antaresatlantide/anomalie-detection/blob/main/MLfromcrashcpp.md)
      - 4.1 [K-Means](https://github.com/antaresatlantide/anomalie-detection/blob/main/MLfromcrashcpp.md)
      - 4.2 [K-NN](https://github.com/antaresatlantide/anomalie-detection/blob/main/MLfromcrashcpp.md)
-     - 4.3 [REGRESSIONTREES](https://github.com/antaresatlantide/anomalie-detection/blob/main/MLfromcrashcpp.md)
+     - 4.3 [Regression Trees](https://github.com/antaresatlantide/anomalie-detection/blob/main/MLfromcrashcpp.md)
     
   
