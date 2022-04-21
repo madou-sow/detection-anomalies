@@ -1282,7 +1282,10 @@ Ce référentiel est l'implémentation officielle de l'article Online Learning D
 
 >> La communauté tinyML continue de croître grâce à de multiples événements de haute qualité 
 >> – en personne et en ligne 
->> – tout au long de l'année, notamment le sommet tinyML, tinyML EMEA, tinyML Asia, tinyML Talks et les meetups tinyML.
+>> 
+>> – tout au long de l'année, 
+>> 
+>> notamment le sommet tinyML, tinyML EMEA, tinyML Asia, tinyML Talks et les meetups tinyML.
 
 # Résultats de nos RECHERCHES
 
