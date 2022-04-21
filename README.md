@@ -1,7 +1,6 @@
 # Détection d'Anomalies
 
-Proposition de Christophe C.
-===========================
+**Proposition de Christophe C.**
 
 Dans la continuation de notre travail avec Kimura, nous allons maintenant passer au data stream anomaly detection problem.
 
