@@ -1,5 +1,7 @@
 # Détection d'Anomalies
 
+Proposition de Christophe C.
+
 Dans la continuation de notre travail avec Kimura, nous allons maintenant passer au data stream anomaly detection problem.
 
 Il y a en gros 3 techniques pour a détection d’anomalies, qui sont parfaitement résumées dans le papier suivant qui attaque la question du « online » (comme nous pour le clustering) : https://hal.archives-ouvertes.fr/hal-02874869v2/file/IForestASD_ScikitMultiflow_Version2_PourHAL.pdf
