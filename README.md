@@ -1281,10 +1281,8 @@ Ce référentiel est l'implémentation officielle de l'article Online Learning D
 >>> (iii) les applications initiales à faible puissance dans l'espace de la vision et de l'audio. Il y a une dynamique croissante démontrée par le progrès technique et le développement de l'écosystème.
 
 >> La communauté tinyML continue de croître grâce à de multiples événements de haute qualité 
->> – en personne et en ligne 
->> 
->> – tout au long de l'année, 
->> 
+>> – en personne et en ligne  <br>
+>> – tout au long de l'année,  <br>
 >> notamment le sommet tinyML, tinyML EMEA, tinyML Asia, tinyML Talks et les meetups tinyML.
 
 # Résultats de nos RECHERCHES
