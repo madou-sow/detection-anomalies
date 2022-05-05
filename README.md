@@ -17,7 +17,7 @@ L’article sur HAL, lui, suppose que nous travaillons dans l’écosystème Pyt
 https://github.com/MariamBARRY
 
 
-les 3 techniques pour a détection d’anomalies
+les 3 techniques pour la détection d’anomalies
 
 1. iForestASD_Streaming_Scikit-MultiFlow
 
