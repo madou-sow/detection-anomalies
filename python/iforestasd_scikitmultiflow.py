@@ -30,20 +30,18 @@ An Implementation of Unsupervised Anomaly Detection with Isolation Forest in Sci
 Part 1 - Main Class contians
   - Init,
   - Partial_fit,
-  -  Update_model,
+  - Update_model,
   - Predict methods which use the anomaly_score methods of the iForest class
 
 Part 2 - Isolation Forest class (re-used) and main functions
- - 
-
+ 
 Part 3 - Testing some examples and comparison of HS-Trees and IsolatationForestStream 
 - on synthetic 
 - on Real (HTTP) data.
 
 ## Import lib and packages
+
 """
-
-
 
 """## Install Cyphion then load the Scikit-multiflow latest release from Github"""
 
@@ -54,13 +52,9 @@ Part 3 - Testing some examples and comparison of HS-Trees and IsolatationForestS
 #!pip install -U git+https://github.com/scikit-multiflow/scikit-multiflow
 
 from skmultiflow.core import BaseSKMObject, ClassifierMixin
-
 from skmultiflow.utils import check_random_state
-
 import numpy as np
-
 import random
-
 
 """# Part 1 - Main class - IsolationForestStream"""
 
@@ -155,25 +149,15 @@ self.n_estimators
         super().__init__()
 
         self.n_estimators = n_estimators
-
-        self.ensemble = None
-      
+        self.ensemble = None   
         self.random_state = random_state
-
         self.window_size = window_size
-
         self.samples_seen = 0
-
-        self.anomaly_rate = 0.20 
-
+        self.anomaly_rate = 0.20
         self.anomaly_threshold = anomaly_threshold
-
         self.drift_threshold = drift_threshold
-
         self.window = None
-
         self.prec_window = None
-
         self.cpt = 0
 
 
