@@ -47,8 +47,6 @@ Part 3 - Testing some examples and comparison of HS-Trees and IsolatationForestS
 
 ## !pip install scikit-multiflow
 
-
-
 #!pip install -U git+https://github.com/scikit-multiflow/scikit-multiflow
 
 from skmultiflow.core import BaseSKMObject, ClassifierMixin
@@ -80,31 +78,21 @@ class IsolationForestStream(BaseSKMObject, ClassifierMixin):
     ---------
 
     n_estimators: int, optional (default=25)
-
        Number of trees in the ensemble.
-
        't' in the original paper.
 
-
-
     window_size: int, optional (default=100)
-
         The window size of the stream.
-
         ψ, 'Psi' in the original paper.   
 
 ## Optional       
 
     anomaly_threshold: double, optional (default=0.5)
-
         The threshold for declaring anomalies.
-
         Any instance prediction probability above this threshold will be declared as an anomaly.
 
     drift_threshold: double, optional (default=0.5)
-
         The threshold for detecting Drift and update the model.
-
        If the averaged anomaly score between two successive sliding windows is highter than the threshold (u), 
     then the previous model is completely discarded and a new model is build as an isolation forest on latest sliding windows stream.
     This parameters is supposed to be know by an expert domain, depending on data set.
@@ -112,23 +100,18 @@ class IsolationForestStream(BaseSKMObject, ClassifierMixin):
 ## Other Attributes
 
     ensemble : Isolation Tree Ensemble
-
         Contain an Isolation Tree Ensemble object, current model for   IsolationForestStream
 
     sample_size : int
-
         Number of sample seen since the update
 
     anomaly_rate : float
-
         Rate of the anomalies in the previous sliding window (AnomalyRate in the original paper iForestASD)
 
     prec_window & window : numpy.ndarray of shape (n_samples, self.window_size)
-
         The previous and current window of data
 
     cpt : int
-
         Counter, if the n_estimator is higher than its, it will fit
 
     References
