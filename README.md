@@ -1310,10 +1310,10 @@ Notons la taille du chemin d’un nœud x : h(x). Il existe plusieurs types d’
 l’arbre binaire, arbre de décision. Nous nous intéressons dans notre projet à l’arbre bi-
 naire de recherche et à l’arbre de décision.
 
--> Un arbre binaire de recherche est un arbre où chaque nœud possède au plus deux
+>>-> Un arbre binaire de recherche est un arbre où chaque nœud possède au plus deux
 nœuds fils.
 
--> Un arbre binaire strict est un arbre binaire où chaque nœud interne possède deux
+>>-> Un arbre binaire strict est un arbre binaire où chaque nœud interne possède deux
 nœuds fils.
 
 >> Principe : Le principe de l’approche IForest est basé sur les caractéristiques fondamentales des anomalies : ces instances sont une minorité dans la base et elles présentent des attributs distinctes des autres instances. Par conséquent, les anomalies sont très susceptibles au mécanisme d’Isolation. Ce mécanisme consiste à la séparation d’une instance des autres. En générale, une approche fondée sur l’isolation mesure la susceptibilité de l’instance à
