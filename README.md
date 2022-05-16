@@ -1299,18 +1299,20 @@ algorithmes sont très coûteux de point de vue performance. Ce qui limite la ta
 faible performance de l’algorithme, ce qui est traduit par un grand nombre d’instances mal identifiées. Contrairement à ces algorithmes, L’algorithme IForest propose une approche différente qui cherche à identifier directement les anomalies tout en limitant les calculs réalisés. Cette approche utilise la structure des arbres binaire de décision pour représenter les données.
 
 >> Notion d’Arbre et d’arbre de Décision : En théorie de graphe, un arbre est un graphe qui constitue des points appelés nœuds liées à travers des arc. L’ensemble des nœuds se divise en trois catégories :
-- Nœud racine (l’accès à l’arbre se fait par ce nœud),
-- Nœuds internes : les nœuds qui ont des descendants (ou enfants), qui sont à leur tour
+>>- Nœud racine (l’accès à l’arbre se fait par ce nœud),
+>>- Nœuds internes : les nœuds qui ont des descendants (ou enfants), qui sont à leur tour
 des nœuds,
-- Nœuds terminaux (ou feuilles) : nœuds qui n’ont pas de descendant.
+>>- Nœuds terminaux (ou feuilles) : nœuds qui n’ont pas de descendant.
 En informatique l’arbre correspond à une structure de donnée qui représente les don-
 nées en tant que nœuds liés.
 Le chemin d’un nœud représente l’ensemble des nœuds parcourue à partir de la racine.
 Notons la taille du chemin d’un nœud x : h(x). Il existe plusieurs types d’arbres tel que
 l’arbre binaire, arbre de décision. Nous nous intéressons dans notre projet à l’arbre bi-
 naire de recherche et à l’arbre de décision.
+
 -> Un arbre binaire de recherche est un arbre où chaque nœud possède au plus deux
 nœuds fils.
+
 -> Un arbre binaire strict est un arbre binaire où chaque nœud interne possède deux
 nœuds fils.
 
