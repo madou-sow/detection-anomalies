@@ -117,15 +117,22 @@ C'est une interface plus limitée car elle n'implémente pas toutes les fonction
 pour la sérialisation, la prédiction de distance, la production de prédictions dans le même appel
 que le modèle est ajusté, ou ajustement/prédiction sur des données avec des types autres que
 'double' et 'int'.
-
 Les descriptions ici ne contiennent pas la documentation complète, mais uniquement
 quelques conseils afin de les rendre plus compréhensibles, visant à produire la fonction
 des signatures auto-descriptives à la place (si vous êtes familier avec le
 bibliothèque scikit-learn pour Python).
-
 Pour une documentation détaillée, voir les méthodes identiques ou similaires dans le
 l'en-tête 'isotree.hpp' à la place.
- 
+
+Sachez que de nombreuses combinaisons de paramètres ne sont pas valides.
+Cette fonction ne fera aucune validation des entrées qu'elle reçoit.
+Appeler 'fit' avec une combinaison de paramètres invalides *peut* lancer un
+exception d'exécution, mais il ne pourra pas détecter toutes les
+des combinaisons de paramètres non valides et pourraient potentiellement conduire à un silence
+des erreurs comme des modèles statistiquement incorrects ou des prédictions qui ne
+faire sens. Voir la documentation de l'en-tête non-POO ou du R
+et les interfaces Python pour plus de détails sur les paramètres et les
+combinaisons valides et invalides de paramètres.
 
         ## /home/mamadou/big-data/cerin24022022/cpp-isotree/example/isotree_oop.hpp
 
