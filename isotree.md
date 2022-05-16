@@ -102,7 +102,9 @@ Description de l'algorithme
 *isotree_oop.hpp*
 
 Forêts isolées et variantes de celles-ci, avec ajustements pour incorporation
+
     * des variables catégorielles et des valeurs manquantes.
+    
     * Écrit pour la norme C++11 et destiné à être utilisé dans R et Python.
 
 Interface POO IsoTree : Ceci est fourni comme une interface alternative plus facile à utiliser pour cette bibliothèque
