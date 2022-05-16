@@ -1321,9 +1321,9 @@ l’arbre par une taille du chemin plus court en moyenne que les autres.
 >> **Algorithme :** On décrit dans cette section l’implémentation de l’algorithme IForest. Cet algorithme est divisé en deux phases. La première phase d’entraînement est responsable de la construction des arbres d’isolation. La deuxième phase, phase d’évaluation, calcule les tailles des chemins moyens de l’instance et calcule un score d’évaluation qui détermine quelles sont les anomalies.
 
 >> **Métrique :** Pour évaluer la performance d’un algorithme dans une base de données nous avons choisi 4 métriques d’évaluation.
-(a) Accuracy est le pourcentage d’instance prédit correctement dans un ensemble
-(b) F-score est une mesure engendrée de la précision et le rappel
-(c) AUC ROC est la courbe ROC représente la courbe associée à la variation du TPR par le FPR. La AUC de la courbe ROC est la surface de l’espace limité par la courbe. Elle représente la probabilité qu’une instance qui appartient à notre classe possédera un score moins que celle d’une instance qui n’appartient pas. Si la valeur du AUC est égal à 0.5, alors notre modèle n’a pas de moyen de distinction entre l’appartenance ou non à notre classe. Son
+- (a) Accuracy est le pourcentage d’instance prédit correctement dans un ensemble<\br>
+- (b) F-score est une mesure engendrée de la précision et le rappel<\br>
+- (c) AUC ROC est la courbe ROC représente la courbe associée à la variation du TPR par le FPR. La AUC de la courbe ROC est la surface de l’espace limité par la courbe. Elle représente la probabilité qu’une instance qui appartient à notre classe possédera un score moins que celle d’une instance qui n’appartient pas. Si la valeur du AUC est égal à 0.5, alors notre modèle n’a pas de moyen de distinction entre l’appartenance ou non à notre classe. Son
 choix est aléatoire. Donc l’AUC ROC permet d’évaluer le potentiel du modèle à prédire. Il est clair que l’ AUC ROC n’est pas susceptible de la valeur du seuil de distinction
 
 
