@@ -101,6 +101,30 @@ Description de l'algorithme
 
 *isotree_oop.hpp*
 
+Forêts isolées et variantes de celles-ci, avec ajustements pour incorporation
+    * des variables catégorielles et des valeurs manquantes.
+    * Écrit pour la norme C++11 et destiné à être utilisé dans R et Python.
+
+Interface POO IsoTree : Ceci est fourni comme une interface alternative plus facile à utiliser pour cette bibliothèque
+qui suit les méthodes de style scikit-learn avec une seule classe C++. C'est un
+wrapper sur l'en-tête non-POO 'isotree.hpp', fournissant la même fonctionnalité
+dans une structure peut-être plus compréhensible, tout en offrant un accès direct
+aux objets sous-jacents afin de permettre l'utilisation des fonctions de 'isotree.hpp'.
+
+C'est une interface plus limitée car elle n'implémente pas toutes les fonctionnalités
+pour la sérialisation, la prédiction de distance, la production de prédictions dans le même appel
+que le modèle est ajusté, ou ajustement/prédiction sur des données avec des types autres que
+'double' et 'int'.
+
+Les descriptions ici ne contiennent pas la documentation complète, mais uniquement
+quelques conseils afin de les rendre plus compréhensibles, visant à produire la fonction
+des signatures auto-descriptives à la place (si vous êtes familier avec le
+bibliothèque scikit-learn pour Python).
+
+Pour une documentation détaillée, voir les méthodes identiques ou similaires dans le
+l'en-tête 'isotree.hpp' à la place.
+ 
+
         ## /home/mamadou/big-data/cerin24022022/cpp-isotree/example/isotree_oop.hpp
 
         /*    Isolation forests and variations thereof, with adjustments for incorporation
