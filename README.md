@@ -1243,7 +1243,7 @@ les 3 techniques pour la détection d’anomalies
                     return df_forest
 --> 
 
-## streaming-online-learning
+## [streaming-online-learning](https://github.com/MariamBARRY/streaming-online-learning)
 
 Ce référentiel est l'implémentation officielle de l'article Online Learning Deployment for Streaming Applications in the Banking Sector (Barry, Montiel, Bifet, Chiky, Shakman, Manchev, Wadkar, El Baroudi, Tran, KDD 2021). Les ressources peuvent être utilisées pour configurer et déployer des instances de modèles d'apprentissage automatique en ligne, pour générer des prédictions et mettre à jour les poids du modèle sur les données en continu.
 
