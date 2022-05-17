@@ -25,7 +25,7 @@ les 3 techniques pour la détection d’anomalies
 
 3. streaming-online-learning
 
-## iForestASD_Streaming_Scikit-MultiFlow
+## [iForestASD_Streaming_Scikit-MultiFlow](Notebook_test_iForestASD_Scikitmultiflow.ipynb)
 [**iForestASD_Streaming_Scikit-MultiFlow.py**](python/iforestasd_scikitmultiflow.py)
 
 <!--
