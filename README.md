@@ -609,7 +609,7 @@ les 3 techniques pour la détection d’anomalies
                       Path(path).mkdir(parents=True, exist_ok=True) 
 -->
                       
-## skmultiflow_IForestASD
+## [skmultiflow_IForestASD](https://github.com/MariamBARRY/skmultiflow_IForestASD)
 
 [IForestASD_HSTrees_comparison](IForestASD_HSTrees_comparison.ipynb)
 
