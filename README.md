@@ -611,6 +611,10 @@ les 3 techniques pour la détection d’anomalies
                       
 ## skmultiflow_IForestASD
 
+[IForestASD_HSTrees_comparison](IForestASD_HSTrees_comparison.ipynb)
+
+[execution_example](execution_example.ipynb)
+
 [**iforestasd_scikitmultiflow.py**](python/iforestasd_scikitmultiflow1.py)
 
 <!--
