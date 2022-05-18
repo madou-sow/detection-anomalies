@@ -3,10 +3,9 @@
  
  [Référence](https://github.com/magikerwin1993/ML-From-Scratch-With-CPP)
 
-Implementations of Classic Machine Learning Algorithm with C++
-(some visualization works are implemented with python)
+Implémentations de Classic Machine Learning Algorithm avec C++ (certains travaux de visualisation sont implémentés avec python)
 
-Most of the machine learning implementations are based on python, and I hope to provide some reference for C++ enthusiasts through this repository.
+La plupart des implémentations d'apprentissage automatique sont basées sur python, et j'espère fournir des références aux passionnés de C++ via ce référentiel.
 
 * https://machinelearningmastery.com/machine-learning-algorithms-from-scratch/
 * https://github.com/eriklindernoren/ML-From-Scratch
