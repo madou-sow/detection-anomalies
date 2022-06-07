@@ -62,18 +62,52 @@ typedef struct IsolationForestStream {
 
 
      int n_estimators;
+     int window_size;
      double random_state;
-     double window_size;
-     int samples_seen = 0;
-     double self.anomaly_rate = 0.20;
      double anomaly_threshold;
      double drift_threshold;
-     double self.cpt = 0;
-
+     int sample_size;
+     float anomaly_rate;
+     int cpt;
 
     IsolationForestStream() = default;
 
 } IsolationForestStream;
+
+
+typedef struct ensemble {
+     int X;
+     int window_size;
+} ensemble;
+
+typedef struct window  {
+     int X;
+     int y;
+     int window (window* int window_size, int n_features);
+} window;
+
+typedef struct prec_window {
+     int X;
+     int window_size;
+} prec_window;
+
+typedef struct samples_seen {
+     int X;
+     int window_size;
+} samples_seen;
+
+typedef struct n_tree {
+     int X;
+     int window_size;
+} n_tree;
+
+typedef struct depth {
+     int X;
+     int sample_size;
+} depth;
+
+
+
 
 typedef struct IsoHPlane {
     std::vector<size_t>   col_num;
@@ -184,7 +218,8 @@ int fit_iforest(IsoForest *model_outputs, ExtIsoForest *model_outputs_ext,
                 CategSplit cat_split_type, NewCategAction new_cat_action,
                 bool   all_perm, Imputer *imputer, size_t min_imp_obs,
                 UseDepthImp depth_imp, WeighImpRows weigh_imp_rows, bool impute_at_fit,
-                uint64_t random_seed, bool use_long_double, int nthreads);
+                uint64_t random_seed, bool use_long_double, int nthreads,
+		int window_size, int n_estimators, double random_state);
 
 
 

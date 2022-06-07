@@ -41,6 +41,11 @@
    Then run with './test'
 */
 
+
+int sample_size;
+int n_trees;
+float random_state;
+
 int which_max(std::vector<double> &v)
 {
     auto loc_max_el = std::max_element(v.begin(), v.end());
