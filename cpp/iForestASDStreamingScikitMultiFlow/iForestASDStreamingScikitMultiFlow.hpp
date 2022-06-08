@@ -60,7 +60,6 @@ typedef struct IsolationForestStream {
     double   range_high =  HUGE_VAL;
     double   remainder; /* only used for distance/similarity */
 
-
      int n_estimators;
      int window_size;
      double random_state;
@@ -74,13 +73,21 @@ typedef struct IsolationForestStream {
 
 } IsolationForestStream;
 
-
 typedef struct ensemble {
-     int X;
-     int window_size;
+    std::vector< std::vector<IsoForest> > n_trees;
+    int  window_size;
+    int	n_estimators;
+    double random_state;
+    int X;
 } ensemble;
 
-typedef struct window  {
+typedef struct number_instances {
+     int X;
+     int y;
+} number_instances;
+
+
+typedef struct window {
      int X;
      int y;
      int window (window* int window_size, int n_features);
@@ -106,7 +113,25 @@ typedef struct depth {
      int sample_size;
 } depth;
 
+typedef struct fit {
+     int X;
+     int sample_size;
+} fit;
 
+typedef struct path_length {
+     int X;
+     int trees;
+} path_length;
+
+typedef struct anomaly_score {
+     int X;
+     int path_length;
+} anomaly_score;
+
+typedef struct predict_from_anomaly_scores {
+     int scores;
+     float threshold;
+} predict_from_anomaly_scores;
 
 
 typedef struct IsoHPlane {
