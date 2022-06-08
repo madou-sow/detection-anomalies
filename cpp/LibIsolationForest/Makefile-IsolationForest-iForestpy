@@ -1,0 +1,19 @@
+CFLAGS=-Wall -O3 -std=c++11
+
+.PHONY: all clean 
+
+all : IsolationForest-iForestpy
+
+IsolationForest-iForestpy : main-iForestpy.o IsolationForest-iForestpy.o 
+	${CXX} ${CFLAGS} $^ -o $@ ${LDFLAGS} 
+
+main-iForestpy.o : main-iForestpy.cpp
+	${CXX} ${CFLAGS} -c $^ -o $@
+
+IsolationForest-iForestpy.o : IsolationForest-iForestpy.cpp
+	${CXX} ${CFLAGS} -c $^ -o $@
+
+clean : 
+	#-rm -f *.o IsolationForest-iForestpy
+	-rm -f *.o 
+
