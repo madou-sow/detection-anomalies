@@ -207,15 +207,15 @@ int main(int argc, const char * argv[])
 	std::ofstream outStream;
 	bool dump = false;
 
-        // SOW
+        // SOW Debut
     	const size_t window_size=10;
     	const size_t n_estimators=50;
-        const uint32_t size_limit=0.1*100; 
-    	const uint32_t anomaly_threshold=0.90;
+        float size_limit=0.1*100; 
+    	float anomaly_threshold=0.90;
     	const size_t depth=15;
         const size_t random_state=5;
 	
-	//
+	// SOW Fin
 
 	// Analysez les arguments de la ligne de commande.
 	for (int i = 1; i < argc; ++i)

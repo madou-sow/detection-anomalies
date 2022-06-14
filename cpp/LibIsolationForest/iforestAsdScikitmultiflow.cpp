@@ -36,45 +36,61 @@
 
 // sow
 namespace IsolationTreeEnsemble{
-	Node::Node() :
-                height_limit,
-                trees(NULL)
-        {
-        }
 
-	list::~list()
-	{
-		element * suiv;
-		courant = debut;
-		while (courant != NULL)
-			{ suiv = courant->suivant ; 
-				delete courant; 
-				courant = suiv;
-			}
+	void fit(X){
+		sample_idx* m_randomizer(list,sample_size);
+		temp_tree* IsolationTree(depth,fit(sample_idx));
+		trees >> temp_tree;
+	
 	}
 
-       /// Constructor.
-        Node::Node(const std::string& featureName, uint64_t height_limit) :
-                m_featureName(featureName),
-                m_height_limit(height_limit),
-		m_len_x(len),
-		m_col_x(col),
-		m_trees(trees)
-        {
-		if (improved);
-			for (i=0;i<trees;trees++);
-		                sample_idx = m_randomizer.sample(list(), sample.size());
-                		temp_tree = IsolationTree(self.height_limit,0).fit(X[sample_idx, :], improved=False);
+	void path_length(X){
+		for (x=0;x<X;x++):
+			for (t=0;t<trees;trees++):
+				pl* path_length_tree(x,t);
+				pl* mean();
 
-        }
+
+	
+	}
+
+	void anomaly_score(){
+
+	
+	}
+
+	void predictions(){
+		predictions = 1 
+			if scores >= threshold else 0;
+	}
 
 }
 
+
+struct ensemble::IsolationTreeEnsemble{
+	anomaly_score;
+}
+
+struct anomaly_score{
+	prec_window;
+	anomaly_threshold;
+}
+
+struct predict_proba{
+	prec_window;
+}
+
+struct predict_from_anomaly_scores{
+	predict_proba;
+	anomaly_threshold;
+}
+
 namespace IsolationForestStream{
+
 	partial_fit::partial_fit{
 		Forest::Forest(uint32_t X, uint32_t y, size_t classes, size_t sample_weight) :
-		number_instances(X),
-                IsolationTreeEnsemble(window_size,n_estimators, randon_state),
+		number_instances(int X),
+                IsolationTreeEnsemble(int window_size,int n_estimators, int randon_state),
 	}
 
 	_partial_fit::_partial_fit{
@@ -84,7 +100,24 @@ namespace IsolationForestStream{
 		anomaly_rate(anomaly_scores_rate, drift_thresold)
         }
 
+        update_model::update_model(){
+		ensemble(iforest);
+		ensemble.fit(window);
+	}
 
+	anomaly_scores_rate(){
+		score_tab=2.0 ** (-1.0 * self.ensemble.path_length(window) / c(len(window)));
+		score = 0;
+    		for x in score_tab:
+      			if x > self.anomaly_threshold:
+        		score += 1;
+    		return score / len(score_tab)
+	}
+
+	predict::predict(){
+		samples_seen* window_size;
+                prediction* ensemble.predict_from_anomaly_scores;
+	}
 
 }
 
