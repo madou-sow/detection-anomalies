@@ -30,23 +30,15 @@
 #include <time.h>
 #include <vector>
 
-int n_estimators;
-int ensemble;
+int sample_size; 
+float n_trees;
 float random_state;
-float window_size;
-float samples_seen;
-float anomaly_rate;
-float anomaly_threshold;
-float drift_threshold;
-float window;
-float prec_window = None;
-int cpt;
 
-namespace iforestAsdScikitmultiflow
+namespace IsolationTreeTreeEnsemble
 {
-	class partial_fit
+	class fit
 	{
-		float (X,y, classes, sample_weight);
+		float (X);
 	public:
 
 	protected:
