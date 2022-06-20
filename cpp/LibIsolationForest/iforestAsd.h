@@ -47,24 +47,24 @@ namespace IsolationTreeTreeEnsemble
 	};
 
 
-	class _partial_fit
-		float (X,y);
+	class path_length
+		float (X);
 	{
 	public:
 
 	private:
 	};
 
-	class update_model
-		float (window);
+	class anomaly_score
+		float (X);
 	{
 	public:
 
 	private:
 	};
 
-	class anomaly_scores_rate
-		float (window);
+	class predict_from_anomaly_scores
+		float (scores, thresold);
 	{
 	public:
 
@@ -73,7 +73,7 @@ namespace IsolationTreeTreeEnsemble
 
 
 	class predict
-		float (X);
+		float (X, threshold);
 	{
 	public:
 
@@ -89,3 +89,63 @@ namespace IsolationTreeTreeEnsemble
         };
 
 };
+
+int height_limit;
+int current_height;
+char split_by;
+char split_value;
+char right;
+char left;
+int size;
+int exnodes;
+int n_nodes;
+
+namespace IsolationTree
+{
+        class fit_improved
+        {
+                float (X);
+        public:
+
+        protected:
+
+        private:
+        };
+
+
+        class fit
+                float (X);
+        {
+        public:
+
+        private:
+        };
+
+        class find_TPR_threshold
+                float (X);
+        {
+        public:
+
+        private:
+        };
+
+        class c
+                float (scores, thresold);
+        {
+        public:
+
+        private:
+        };
+
+
+        class path_length_tree
+                float (X, threshold);
+        {
+        public:
+
+        private:
+        };
+
+
+};
+
