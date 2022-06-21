@@ -39,7 +39,7 @@ float anomaly_rate;
 float anomaly_threshold;
 float drift_threshold;
 float window;
-float prec_window = None;
+float prec_window;
 int cpt;
 
 namespace iforestAsdScikitmultiflow
@@ -48,10 +48,17 @@ namespace iforestAsdScikitmultiflow
 	{
 		float (X,y, classes, sample_weight);
 	public:
+		number_instances, X.shape
 
-	protected:
+		if (samples_seen == 0)
+			iforest = IsolationTreeEnsemble(window_size,n_estimators,random_state);
+			ensemble = iforest;
+			return ensembe;
 
-	private:
+		for (int i:number_instances):
+			partial_fit(X[i], y[i]);
+		return partial_fit;
+
 	};
 
 
@@ -60,7 +67,28 @@ namespace iforestAsdScikitmultiflow
 	{
 	public:
 
+		std::vector<int> X= {1,len(X)};
+
+
 	private:
+		if (samples_seen % window_size == 0)
+			prec_window = window
+			window =x
+		else
+			window = window.append(X);
+
+		if (samples_seen % windows_size == 0 and samples_seen !=0)
+			if(cpt < n_estimators)
+				ensemble.fit(prec_window);
+				cpt += 1;
+				anomaly_rate = anomaly_scores_rate(prec_window);
+			
+			if (anomaly_rate > drift_threshold)
+				update_model(pred_window);
+
+		samples_seen=1;
+			
+
 	};
 
 	class update_model
@@ -75,6 +103,12 @@ namespace iforestAsdScikitmultiflow
 		float (window);
 	{
 	public:
+		score_tab = 2.0**(-1.0*ensemble.path_length(window)/c(len(window)));
+		score = 0;
+		for (auto x: score_tab)
+			if (x > anomaly_thresold)
+				score += 1;
+		return score / len(score_tab)
 
 	private:
 	};

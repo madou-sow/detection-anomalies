@@ -122,7 +122,7 @@ namespace IsolationTree
         };
 
         class find_TPR_threshold
-                float (X);
+                float (y, scores, desired_TPR);
         {
         public:
 
@@ -130,7 +130,7 @@ namespace IsolationTree
         };
 
         class c
-                float (scores, thresold);
+                float (n);
         {
         public:
 
@@ -139,7 +139,7 @@ namespace IsolationTree
 
 
         class path_length_tree
-                float (X, threshold);
+                float (x,t,e);
         {
         public:
 
