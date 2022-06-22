@@ -29,10 +29,54 @@
 #include <string>
 #include <time.h>
 #include <vector>
+#include <math>
+#include "Rcpp/Inst/include/Rcpp.h"
+#include <cstdlib> //required for rand(), srand()
+#include <iostream>
+#include "ndarray.h"
 
 int sample_size; 
 float n_trees;
 float random_state;
+float height_limit = np.log2(sample_size);
+float trees = [];
+
+namespace Rcpp
+{
+	class Rcpp::List create_data_table() 
+	{
+    		Rcpp::List res;
+  
+    		// Populate the list
+    		// ...
+  
+    		res.attr("class") = Rcpp::CharacterVector::create("data.table", "data.frame");
+    		return res;
+	};
+};
+
+
+using namespace Rcpp;
+
+namespace DataFrame
+{
+	// [[Rcpp::export]]
+	class DataFrame df(int n = 10, int nobs = 10000) {
+    	// create a list with n slots
+    	List res(n);
+    	CharacterVector list_names = CharacterVector(n);
+
+    	// populate the list elements
+    	for (int i = 0; i < n; i++) {
+        	list_names[i] = "col_" + std::to_string(i);
+        	res[i] = rnorm(nobs);
+    	}
+
+    	// set the names for the list elements
+    	res.names() = list_names;
+    	return res;
+	};
+};
 
 namespace IsolationTreeTreeEnsemble
 {
@@ -40,10 +84,29 @@ namespace IsolationTreeTreeEnsemble
 	{
 		float (X);
 	public:
-
-	protected:
-
+		if (instanceof<X>(DataFrame df))
+            		X = X.values
+            		len_x = len(X);
+            		col_x = X.shape[1];
+            		trees = [];
+	
 	private:
+        	if improved:
+            		for (i:n_trees):
+
+                                std::srand(std::);
+                		sample_idx = std::rand() % sample(list(range(len_x)), sample_size);
+                		temp_tree = IsolationTree(height_limit, 0).fit_improved(X[sample_idx, :], improved=True);
+                		trees.append(temp_tree);
+        	else:
+            		for (i:n_trees):
+
+                		sample_idx = random(sample(list(j:len_x), sample_size));
+                		temp_tree = IsolationTree(self.height_limit, 0).fit(X[sample_idx, :], improved=False);
+                		trees.append(temp_tree);
+
+        	return self
+
 	};
 
 
@@ -51,6 +114,19 @@ namespace IsolationTreeTreeEnsemble
 		float (X);
 	{
 	public:
+		pl_vector = []
+        	if isinstance(X, pd.DataFrame):
+            		X = X.values
+
+        	for (x:X):
+            		pl = std::vector<int>([path_length_tree(x, t, 0) for (t:trees)]);
+            		pl = pl.mean();
+
+            		pl_vector.append(pl);
+
+        	pl_vector = std::vector<int>pl_vector = reshape(-1, 1);
+
+        return pl_vector
 
 	private:
 	};
@@ -60,15 +136,17 @@ namespace IsolationTreeTreeEnsemble
 	{
 	public:
 
-	private:
+		return 2.0 ** (-1.0 * path_length(X) / c(len(X)));
 	};
 
 	class predict_from_anomaly_scores
 		float (scores, thresold);
 	{
 	public:
+		predictions = [1 if p[0] >= threshold else 0 for (p:scores)]
 
-	private:
+        return predictions;
+
 	};
 
 
@@ -76,17 +154,11 @@ namespace IsolationTreeTreeEnsemble
 		float (X, threshold);
 	{
 	public:
+		scores = 2.0 ** (-1.0 * path_length(X) / c(len(X)));
+        	predictions = [1 if p[0] >= threshold else 0 for (p:cores)]
 
-	private:
+        return predictions;
 	};
-
-	class predict_proba
-                float (X);
-        {
-        public:
-
-        private:
-        };
 
 };
 
@@ -104,12 +176,45 @@ namespace IsolationTree
 {
         class fit_improved
         {
-                float (X);
+                float (std:vector<int>X);
         public:
+	        if len(X) <= 1 or current_height >= height_limit:
+            		exnodes = 1
+            		size = len(X)
 
-        protected:
+            	return self
 
-        private:
+        	split_by = random.choice(np.arange(X.shape[1]))
+        	min_x = X[:, split_by].min()
+        	max_x = X[:, split_by].max()
+
+        	if min_x == max_x:
+            		self.exnodes = 1
+            		self.size = len(X)
+
+            		return self
+        	condition = True
+
+        	while condition:
+
+            		split_value = min_x + random.betavariate(0.5,0.5)*(max_x-min_x)
+
+            		a = X[X[:, split_by] < split_value]
+            		b = X[X[:, split_by] >= split_value]
+            		if len(X) < 10 or a.shape[0] < 0.25 * b.shape[0] or b.shape[0] < 0.25 * a.shape[0] or (
+                    			a.shape[0] > 0 and b.shape[0] > 0):
+                		condition = False
+
+            		size = len(X)
+            		split_by = split_by
+            		split_value = split_value
+
+            		left = IsolationTree(height_limit, current_height + 1).fit_improved(a, improved=False)
+            		right = IsolationTree(height_limit, current_height + 1).fit_improved(b, improved=False)
+            		n_nodes = left.n_nodes + right.n_nodes + 1
+
+        	return self		
+
         };
 
 

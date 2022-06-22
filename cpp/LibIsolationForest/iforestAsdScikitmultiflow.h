@@ -95,8 +95,11 @@ namespace iforestAsdScikitmultiflow
 		float (window);
 	{
 	public:
-
-	private:
+		is_learning_phase_on = True;
+		iforest = IsolationTreeEnsemble(window_size,n_estimators,random_state);
+    		ensemble = iforest;
+    		ensemble.fit(window);
+    		cout << ("Update");
 	};
 
 	class anomaly_scores_rate
@@ -108,26 +111,35 @@ namespace iforestAsdScikitmultiflow
 		for (auto x: score_tab)
 			if (x > anomaly_thresold)
 				score += 1;
-		return score / len(score_tab)
+		return score / len(score_tab);
 
-	private:
 	};
-
 
 	class predict
 		float (X);
 	{
 	public:
+		if(samples_seen <= window_size)
 
-	private:
+      			return [-1]; 
+
+    		X = np.reshape(X,(1,len(X[0])));
+    		prec_window = prec_window.add(X);
+
+    		prediction =  ensemble.predict_from_anomaly_scores(predict_proba(prec_window),anomaly_threshold) 
+
+    		return [prediction];
+
 	};
 
 	class predict_proba
                 float (X);
         {
         public:
+		if(samples_seen <= window_size)
+        		return [-1];
+    		return ensemble.anomaly_score(prec_window)[-1];
 
-        private:
         };
 
 };
