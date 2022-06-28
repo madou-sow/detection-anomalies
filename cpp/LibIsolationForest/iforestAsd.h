@@ -34,6 +34,7 @@
 #include <cstdlib> //required for rand(), srand()
 #include <iostream>
 #include "ndarray.h"
+#include<cstdlib>
 
 int sample_size; 
 float n_trees;
@@ -78,6 +79,7 @@ namespace DataFrame
 	};
 };
 
+
 namespace IsolationTreeTreeEnsemble
 {
 	class fit
@@ -94,7 +96,7 @@ namespace IsolationTreeTreeEnsemble
         	if improved:
             		for (i:n_trees):
 
-                                std::srand(std::);
+                                std::srand(std::time(0));
                 		sample_idx = std::rand() % sample(list(range(len_x)), sample_size);
                 		temp_tree = IsolationTree(height_limit, 0).fit_improved(X[sample_idx, :], improved=True);
                 		trees.append(temp_tree);
@@ -105,7 +107,7 @@ namespace IsolationTreeTreeEnsemble
                 		temp_tree = IsolationTree(self.height_limit, 0).fit(X[sample_idx, :], improved=False);
                 		trees.append(temp_tree);
 
-        	return self
+        	return self;
 
 	};
 
@@ -115,8 +117,9 @@ namespace IsolationTreeTreeEnsemble
 	{
 	public:
 		pl_vector = []
-        	if isinstance(X, pd.DataFrame):
-            		X = X.values
+        	// if isinstance(X, pd.DataFrame):
+        	if isinstance(X, DataFrame):
+            		X = X.values;
 
         	for (x:X):
             		pl = std::vector<int>([path_length_tree(x, t, 0) for (t:trees)]);
@@ -126,7 +129,7 @@ namespace IsolationTreeTreeEnsemble
 
         	pl_vector = std::vector<int>pl_vector = reshape(-1, 1);
 
-        return pl_vector
+        return pl_vector;
 
 	private:
 	};
@@ -179,41 +182,45 @@ namespace IsolationTree
                 float (std:vector<int>X);
         public:
 	        if len(X) <= 1 or current_height >= height_limit:
-            		exnodes = 1
-            		size = len(X)
+            		exnodes = 1;
+            		size = len(X);
 
-            	return self
+            	return current_height;
 
-        	split_by = random.choice(np.arange(X.shape[1]))
-        	min_x = X[:, split_by].min()
-        	max_x = X[:, split_by].max()
+		//split_by = rand().choice(np.arange(X.shape[1]));
+		split_by::rand().array choice<int>X.shape;
+		X.shape[1];
+		//split_by = rand().choice(np.arange(X.cols));
+		split_by::rand().array choice(np.arange(X.cols));
+        	min_x = X[:, split_by].min();
+        	max_x = X[:, split_by].max();
 
-        	if min_x == max_x:
-            		self.exnodes = 1
-            		self.size = len(X)
+        	if (min_x == max_x)
+            		exnodes = 1;
+            		size = len(X);
 
-            		return self
-        	condition = True
+            		return X;
+        	condition = True;
 
-        	while condition:
+        	while (condition)
 
-            		split_value = min_x + random.betavariate(0.5,0.5)*(max_x-min_x)
+            		split_value = min_x + random.betavariate(0.5,0.5)*(max_x-min_x);
 
-            		a = X[X[:, split_by] < split_value]
-            		b = X[X[:, split_by] >= split_value]
-            		if len(X) < 10 or a.shape[0] < 0.25 * b.shape[0] or b.shape[0] < 0.25 * a.shape[0] or (
-                    			a.shape[0] > 0 and b.shape[0] > 0):
-                		condition = False
+            		a = X[X[:, split_by] < split_value];
+            		b = X[X[:, split_by] >= split_value];
+            		if (len(X) < 10 or a.shape[0] < 0.25 * b.shape[0] or b.shape[0] < 0.25 * a.shape[0] or (
+                    			a.shape[0] > 0 and b.shape[0] > 0))
+                		condition = False;
 
-            		size = len(X)
-            		split_by = split_by
-            		split_value = split_value
+            		size = len(X);
+            		split_by = split_by;
+            		split_value = split_value;
 
-            		left = IsolationTree(height_limit, current_height + 1).fit_improved(a, improved=False)
-            		right = IsolationTree(height_limit, current_height + 1).fit_improved(b, improved=False)
-            		n_nodes = left.n_nodes + right.n_nodes + 1
+            		left = IsolationTree(height_limit, current_height + 1).fit_improved(a, improved=False);
+            		right = IsolationTree(height_limit, current_height + 1).fit_improved(b, improved=False);
+            		n_nodes = left.n_nodes + right.n_nodes + 1;
 
-        	return self		
+        	return X;		
 
         };
 
@@ -222,24 +229,73 @@ namespace IsolationTree
                 float (X);
         {
         public:
+		if (len(X) <= 1 or current_height >= height_limit)
+            		exnodes = 1;
+            		size = X.shape[0];
 
-        private:
+            		return X;
+
+        	split_by = random.choice(np.arange(X.shape[1]));
+        	X_col = X[:, split_by];
+        	min_x = X_col.min();
+        	max_x = X_col.max();
+
+        	if (min_x == max_x)
+            		exnodes = 1;
+            	size = len(X);
+
+            		return X;
+
+        	else:
+
+            		split_value = min_x + random.betavariate(0.5, 0.5) * (max_x - min_x)
+
+            		w = np.where(X_col < split_value, True, False)
+            		del X_col
+
+            		size = X.shape[0]
+            		split_by = split_by
+            		split_value = split_value
+
+            		left = IsolationTree(height_limit, current_height + 1).fit(X[w], improved=True)
+            		right = IsolationTree(height_limit, current_height + 1).fit(X[~w], improved=True)
+            		n_nodes = left.n_nodes + right.n_nodes + 1
+
+        	return self
+
+
         };
 
         class find_TPR_threshold
                 float (y, scores, desired_TPR);
         {
         public:
+		threshold = 1
 
-        private:
+    		while threshold > 0:
+        		y_pred = [1 if p[0] >= threshold else 0 for p in scores]
+        		tn, fp, fn, tp = confusion_matrix(y, y_pred).ravel()
+        		TPR = tp / (tp + fn)
+        		FPR = fp / (fp + tn)
+        		if TPR >= desired_TPR:
+            			return threshold, FPR
+
+        		threshold = threshold - 0.001
+
+    		return threshold, FPR
+
         };
 
         class c
                 float (n);
         {
         public:
-
-        private:
+    		if n > 2:
+        		return 2.0*(np.log(n-1)+0.5772156649) - (2.0*(n-1.)/(n*1.0))
+    		elif n == 2:
+        		return 1
+    		if n == 1:
+        		return 0		
         };
 
 
@@ -247,8 +303,18 @@ namespace IsolationTree
                 float (x,t,e);
         {
         public:
+		e = e
+    		if t.exnodes == 1:
+        		e = e+ c(t.size)
+        		return e
+    		else:
+        		a = t.split_by
+        		if x[a] < t.split_value :
+            	return path_length_tree(x, t.left, e+1)
 
-        private:
+        	if x[a] >= t.split_value :
+            		return path_length_tree(x, t.right, e+1)
+
         };
 
 
