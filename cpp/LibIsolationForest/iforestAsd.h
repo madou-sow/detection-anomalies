@@ -235,7 +235,8 @@ namespace IsolationTree
 
             		return X;
 
-        	split_by = random.choice(np.arange(X.shape[1]));
+        	//split_by = random.choice(np.arange(X.shape[1]));
+		split_by::rand().array choice<int>X.shape;
         	X_col = X[:, split_by];
         	min_x = X_col.min();
         	max_x = X_col.max();
@@ -246,22 +247,24 @@ namespace IsolationTree
 
             		return X;
 
-        	else:
+        	else
 
-            		split_value = min_x + random.betavariate(0.5, 0.5) * (max_x - min_x)
+            		//split_value = min_x + random.betavariate(0.5, 0.5) * (max_x - min_x)
+            		split_value = min_x + (rand().betavariate(0.5, 0.5)) * (max_x - min_x);
 
-            		w = np.where(X_col < split_value, True, False)
-            		del X_col
+            		//w = np.where(X_col < split_value, True, False);
+			w::array where(X_col < split_value, True, False);
+            		del X_col;
 
-            		size = X.shape[0]
-            		split_by = split_by
-            		split_value = split_value
+            		size = X.shape[0];
+            		split_by = split_by;
+            		split_value = split_value;
 
-            		left = IsolationTree(height_limit, current_height + 1).fit(X[w], improved=True)
-            		right = IsolationTree(height_limit, current_height + 1).fit(X[~w], improved=True)
-            		n_nodes = left.n_nodes + right.n_nodes + 1
+            		left = IsolationTree(height_limit, current_height + 1).fit(X[w], improved=True);
+            		right = IsolationTree(height_limit, current_height + 1).fit(X[~w], improved=True);
+            		n_nodes = left.n_nodes + right.n_nodes + 1;
 
-        	return self
+        	return X;
 
 
         };
@@ -270,19 +273,19 @@ namespace IsolationTree
                 float (y, scores, desired_TPR);
         {
         public:
-		threshold = 1
+		threshold = 1;
 
-    		while threshold > 0:
-        		y_pred = [1 if p[0] >= threshold else 0 for p in scores]
-        		tn, fp, fn, tp = confusion_matrix(y, y_pred).ravel()
-        		TPR = tp / (tp + fn)
-        		FPR = fp / (fp + tn)
-        		if TPR >= desired_TPR:
-            			return threshold, FPR
+    		while (threshold > 0)
+        		y_pred = [1 if p[0] >= threshold else 0 for p in scores];
+        		tn, fp, fn, tp = confusion_matrix(y, y_pred).ravel();
+        		TPR = tp / (tp + fn);
+        		FPR = fp / (fp + tn);
+        		if (TPR >= desired_TPR)
+            			return threshold, FPR;
 
-        		threshold = threshold - 0.001
+        		threshold = threshold - 0.001;
 
-    		return threshold, FPR
+    		return threshold, FPR;
 
         };
 
@@ -290,12 +293,12 @@ namespace IsolationTree
                 float (n);
         {
         public:
-    		if n > 2:
-        		return 2.0*(np.log(n-1)+0.5772156649) - (2.0*(n-1.)/(n*1.0))
-    		elif n == 2:
-        		return 1
-    		if n == 1:
-        		return 0		
+    		if (n > 2)
+        		return 2.0*(np.log(n-1)+0.5772156649) - (2.0*(n-1.)/(n*1.0));
+    		elif (n == 2)
+        		return 1;
+    		if (n == 1)
+        		return 0;		
         };
 
 
@@ -303,17 +306,17 @@ namespace IsolationTree
                 float (x,t,e);
         {
         public:
-		e = e
-    		if t.exnodes == 1:
-        		e = e+ c(t.size)
-        		return e
+		e = e;
+    		if (t.exnodes == 1)
+        		e = e+ c(t.size);
+        		return e;
     		else:
-        		a = t.split_by
-        		if x[a] < t.split_value :
-            	return path_length_tree(x, t.left, e+1)
+        		a = t.split_by;
+        		if (x[a] < t.split_value)
+            	return path_length_tree(x, t.left, e+1);
 
-        	if x[a] >= t.split_value :
-            		return path_length_tree(x, t.right, e+1)
+        	if (x[a] >= t.split_value)
+            		return path_length_tree(x, t.right, e+1);
 
         };
 
