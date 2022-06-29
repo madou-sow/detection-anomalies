@@ -158,7 +158,7 @@ namespace IsolationTreeTreeEnsemble
 	{
 	public:
 		scores = 2.0 ** (-1.0 * path_length(X) / c(len(X)));
-        	predictions = [1 if p[0] >= threshold else 0 for (p:cores)]
+        	predictions = [1 if p[0] >= threshold else 0 for (p:cores)];
 
         return predictions;
 	};
@@ -188,10 +188,10 @@ namespace IsolationTree
             	return current_height;
 
 		//split_by = rand().choice(np.arange(X.shape[1]));
-		split_by::rand().array choice<int>X.shape;
+		split_by::rand().array[choice<int>X.shape];
 		X.shape[1];
 		//split_by = rand().choice(np.arange(X.cols));
-		split_by::rand().array choice(np.arange(X.cols));
+		split_by::rand().array[choice(np.arange(X.cols))];
         	min_x = X[:, split_by].min();
         	max_x = X[:, split_by].max();
 
@@ -204,7 +204,8 @@ namespace IsolationTree
 
         	while (condition)
 
-            		split_value = min_x + random.betavariate(0.5,0.5)*(max_x-min_x);
+            		//split_value = min_x + random.betavariate(0.5,0.5)*(max_x-min_x);
+            		split_value = min_x + rand().betavariate[0.5,0.5]*(max_x-min_x);
 
             		a = X[X[:, split_by] < split_value];
             		b = X[X[:, split_by] >= split_value];
@@ -236,7 +237,7 @@ namespace IsolationTree
             		return X;
 
         	//split_by = random.choice(np.arange(X.shape[1]));
-		split_by::rand().array choice<int>X.shape;
+		split_by::rand().array[choice<int>X.shape];
         	X_col = X[:, split_by];
         	min_x = X_col.min();
         	max_x = X_col.max();
@@ -250,10 +251,10 @@ namespace IsolationTree
         	else
 
             		//split_value = min_x + random.betavariate(0.5, 0.5) * (max_x - min_x)
-            		split_value = min_x + (rand().betavariate(0.5, 0.5)) * (max_x - min_x);
+            		split_value = min_x + (rand().betavariate[0.5, 0.5]) * (max_x - min_x);
 
             		//w = np.where(X_col < split_value, True, False);
-			w::array where(X_col < split_value, True, False);
+			w::array[where(X_col < split_value, True, False)];
             		del X_col;
 
             		size = X.shape[0];
@@ -294,7 +295,8 @@ namespace IsolationTree
         {
         public:
     		if (n > 2)
-        		return 2.0*(np.log(n-1)+0.5772156649) - (2.0*(n-1.)/(n*1.0));
+        		//return 2.0*(np.log(n-1)+0.5772156649) - (2.0*(n-1.)/(n*1.0));
+        		return 2.0*(array[log(n-1)+0.5772156649) - (2.0*(n-1.)/(n*1.0))];
     		elif (n == 2)
         		return 1;
     		if (n == 1)
@@ -306,7 +308,7 @@ namespace IsolationTree
                 float (x,t,e);
         {
         public:
-		e = e;
+		float e = e;
     		if (t.exnodes == 1)
         		e = e+ c(t.size);
         		return e;

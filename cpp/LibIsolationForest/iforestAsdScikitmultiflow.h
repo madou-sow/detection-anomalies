@@ -42,7 +42,7 @@ float window;
 float prec_window;
 int cpt;
 
-namespace iforestAsdScikitmultiflow
+namespace IsolationForestStream
 {
 	class partial_fit
 	{
@@ -55,7 +55,7 @@ namespace iforestAsdScikitmultiflow
 			ensemble = iforest;
 			return ensembe;
 
-		for (int i:number_instances):
+		for (int i:number_instances)
 			partial_fit(X[i], y[i]);
 		return partial_fit;
 
@@ -67,13 +67,13 @@ namespace iforestAsdScikitmultiflow
 	{
 	public:
 
-		std::vector<int> X= {1,len(X)};
+		std::vector<int> X.reshape(1,len(X));
 
 
 	private:
 		if (samples_seen % window_size == 0)
-			prec_window = window
-			window =x
+			prec_window = window;
+			window =x;
 		else
 			window = window.append(X);
 
