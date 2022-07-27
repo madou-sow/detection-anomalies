@@ -4,9 +4,6 @@
 #include <vector>
 using std::size_t;
 
-/* Implementation from isotree.cpp and isotree.hpp to iForestASDStreamingScikitMultiFlow.hpp and iForestASDStreamingScikitMultiFlow.cpp by SOW */
-
-
 /*  The library has overloaded functions supporting different input types.
     Note that, while 'float' type is supported, it will
     be slower to fit models to them as the models internally use
@@ -17,7 +14,7 @@ using std::size_t;
     library header:
       #define real_t float
       #define sparse_ix int
-      #include "iForestASDStreamingScikitMultiFlow.hpp"
+      #include "isotree_For_isoforestpy_To_isoforesthpp_From_isoforesthppcortes.hpp"
     The header may be included multiple times if required. */
 #ifndef real_t
     #define real_t double     /* supported: float, double */
@@ -26,13 +23,13 @@ using std::size_t;
     #define sparse_ix int  /* supported: int, int64_t, size_t */
 #endif
 
-#ifndef ISOLATIONFORESTSTREAM_H
-#define ISOLATIONFORESTSTREAM_H
+#ifndef ISOTREE_H
+#define ISOTREE_H
 
 #ifdef _WIN32
-    #define ISOLATIONFORESTSTREAM_EXPORTED __declspec(dllimport)
+    #define ISOTREE_EXPORTED __declspec(dllimport)
 #else
-    #define ISOLATIONFORESTSTREAM_EXPORTED 
+    #define ISOTREE_EXPORTED 
 #endif
 
 
@@ -48,8 +45,69 @@ typedef enum  ScoringMetric  {Depth=0,     Density=92,     BoxedDensity=94, Boxe
                               AdjDepth=91, AdjDensity=93}              ScoringMetric;
 
 
+// sowD1
+
+typedef struct IsolationTree {
+    double height_limit; 
+    double current_height;
+    double split_by;
+    double split_value;
+    size_t   left;
+    size_t   right;
+    int size=0;
+    int exnodes=0;
+    int n_nodes=1;
+
+    IsolationTree() = default;
+
+} IsolationTree;
+
+
+typedef struct fit_improved {
+     int X;
+     int exnodes=0;
+     int size=0;
+     double split_value;
+     double split_by;
+     size_t   left;
+     size_t   right;
+     int n_nodes=1;
+     
+} fit_improved;
+
+
+typedef struct find_TPR_threshold {
+     int y;
+     double scores;
+     int threshold=1;
+
+     double fn;
+     double tn;
+     double tp;
+     double fp;
+
+} find_TPR_threshold;
+
+typedef struct c {
+     int n;
+
+} c;
+
+
+typedef struct path_length_tree {
+     double x;
+     double t;
+     double e;
+
+} path_length_tree;
+
+
+
+// sowF1
+
+
 /* Structs that are output (modified) from the main function */
-typedef struct IsolationForestStream {
+typedef struct IsoTree {
     ColType  col_type = NotUsed;
     size_t   col_num;
     double   num_split;
@@ -63,83 +121,9 @@ typedef struct IsolationForestStream {
     double   range_high =  HUGE_VAL;
     double   remainder; /* only used for distance/similarity */
 
-// sowD1
-     int n_estimators;
-     int window_size;
-     double random_state;
-     double anomaly_threshold;
-     double drift_threshold;
-     int samples_seen;
-     float anomaly_rate;
-     int cpt;
-// sowF1
+    IsoTree() = default;
 
-     IsolationForestStream() = default;
-
-} IsolationForestStream;
-
-// sowD2
-typedef struct ensemble {
-    std::vector< std::vector<IsoForest> > n_trees;
-    int  window_size;
-    int	n_estimators;
-    double random_state;
-    int X;
-} ensemble;
-
-typedef struct number_instances {
-     int X;
-     int y;
-} number_instances;
-
-
-typedef struct window {
-     int X;
-     int y;
-     int window (window* int window_size, int n_features);
-} window;
-
-typedef struct prec_window {
-     int X;
-     int window_size;
-} prec_window;
-
-typedef struct samples_seen {
-     int X;
-     int window_size;
-} samples_seen;
-
-typedef struct n_tree {
-     int X;
-     int window_size;
-} n_tree;
-
-typedef struct depth {
-     int X;
-     int sample_size;
-} depth;
-
-typedef struct fit {
-     int X;
-     int sample_size;
-} fit;
-
-typedef struct path_length {
-     int X;
-     int trees;
-} path_length;
-
-typedef struct anomaly_score {
-     int X;
-     int path_length;
-} anomaly_score;
-
-typedef struct predict_from_anomaly_scores {
-     int scores;
-     float threshold;
-} predict_from_anomaly_scores;
-
-// sowF2
+} IsoTree;
 
 typedef struct IsoHPlane {
     std::vector<size_t>   col_num;
@@ -163,7 +147,7 @@ typedef struct IsoHPlane {
 } IsoHPlane;
 
 typedef struct IsoForest {
-    std::vector< std::vector<IsolationForestStream> > trees;
+    std::vector<std::vector<IsoTree>> trees;
     NewCategAction    new_cat_action;
     CategSplit        cat_split_type;
     MissingAction     missing_action;
@@ -175,7 +159,7 @@ typedef struct IsoForest {
 } IsoForest;
 
 typedef struct ExtIsoForest {
-    std::vector< std::vector<IsoHPlane> > hplanes;
+    std::vector<std::vector<IsoHPlane>> hplanes;
     NewCategAction    new_cat_action;
     CategSplit        cat_split_type;
     MissingAction     missing_action;
@@ -189,7 +173,7 @@ typedef struct ExtIsoForest {
 typedef struct ImputeNode {
     std::vector<double>  num_sum;
     std::vector<double>  num_weight;
-    std::vector<std::vector<double>>  cat_sum;
+    std::vector<std::vector<double>> cat_sum;
     std::vector<double>  cat_weight;
     size_t               parent;
     ImputeNode() = default;
@@ -222,14 +206,42 @@ typedef struct TreesIndexer {
 
 
 
+#endif /* ISOTREE_H */
 
-#endif /* ISOLATIONFORESTSTREAM_H */
+
+/*
+ *  Fit IsolationTree model, or variant of it such as SCiForest
+ *
+*/ 
+//sowD2
+ISOTREE_EXPORTED
+int fit_iforest2(IsolationTree *);
+ISOTREE_EXPORTED
+int add_tree2(IsolationTree * );
+ISOTREE_EXPORTED void get_num_nodes(IsolationTree &) noexcept;
+ISOTREE_EXPORTED
+std::string generate_sql_with_select_from2(IsolationTree * );
+ISOTREE_EXPORTED
+std::vector<std::string> generate_sql2(IsolationTree * );
+ISOTREE_EXPORTED
+void set_reference_points2(IsolationTree * );
+ISOTREE_EXPORTED
+bool check_can_undergo_incremental_serialization(const IsolationTree &model, const char *serialized_bytes);
+ISOTREE_EXPORTED
+size_t determine_serialized_size_additional_trees(const IsolationTree &model, size_t old_ntrees);
+ISOTREE_EXPORTED
+void incremental_serialize_IsolationTree(const IsolationTree &model, char *old_bytes_reallocated);
+ISOTREE_EXPORTED
+void incremental_serialize_IsolationTree(const IsolationTree &model, std::string &old_bytes);
+
+//sowF2
+
+
 
 /*  Fit Isolation Forest model, or variant of it such as SCiForest
 * 
 */
-// sowD3
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 int fit_iforest(IsoForest *model_outputs, ExtIsoForest *model_outputs_ext,
                 real_t numeric_data[],  size_t ncols_numeric,
                 int    categ_data[],    size_t ncols_categ,    int ncat[],
@@ -251,15 +263,15 @@ int fit_iforest(IsoForest *model_outputs, ExtIsoForest *model_outputs_ext,
                 CategSplit cat_split_type, NewCategAction new_cat_action,
                 bool   all_perm, Imputer *imputer, size_t min_imp_obs,
                 UseDepthImp depth_imp, WeighImpRows weigh_imp_rows, bool impute_at_fit,
-                uint64_t random_seed, bool use_long_double, int nthreads,
-		int window_size, int n_estimators, double random_state);
+                uint64_t random_seed, bool use_long_double, int nthreads);
 
 
-// sowF3
+
+
 /* Add additional trees to already-fitted isolation forest model
 * 
 */
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 int add_tree(IsoForest *model_outputs, ExtIsoForest *model_outputs_ext,
              real_t numeric_data[],  size_t ncols_numeric,
              int    categ_data[],    size_t ncols_categ,    int ncat[],
@@ -288,7 +300,7 @@ int add_tree(IsoForest *model_outputs, ExtIsoForest *model_outputs_ext,
 /* Predict outlier score, average depth, or terminal node numbers
 * 
 */
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void predict_iforest(real_t numeric_data[], int categ_data[],
                      bool is_col_major, size_t ld_numeric, size_t ld_categ,
                      real_t Xc[], sparse_ix Xc_ind[], sparse_ix Xc_indptr[],
@@ -303,15 +315,15 @@ void predict_iforest(real_t numeric_data[], int categ_data[],
 
 /* Get the number of nodes present in a given model, per tree
 */
-ISOLATIONFORESTSTREAM_EXPORTED void get_num_nodes(IsoForest &model_outputs, sparse_ix *n_nodes, sparse_ix *n_terminal, int nthreads) noexcept;
-ISOLATIONFORESTSTREAM_EXPORTED void get_num_nodes(ExtIsoForest &model_outputs, sparse_ix *n_nodes, sparse_ix *n_terminal, int nthreads) noexcept;
+ISOTREE_EXPORTED void get_num_nodes(IsoForest &model_outputs, sparse_ix *n_nodes, sparse_ix *n_terminal, int nthreads) noexcept;
+ISOTREE_EXPORTED void get_num_nodes(ExtIsoForest &model_outputs, sparse_ix *n_nodes, sparse_ix *n_terminal, int nthreads) noexcept;
 
 
 
 /* Calculate distance or similarity or kernel/proximity between data points
 * 
 */
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void calc_similarity(real_t numeric_data[], int categ_data[],
                      real_t Xc[], sparse_ix Xc_ind[], sparse_ix Xc_indptr[],
                      size_t nrows, bool use_long_double, int nthreads,
@@ -323,7 +335,7 @@ void calc_similarity(real_t numeric_data[], int categ_data[],
 /* Impute missing values in new data
 * 
 */
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void impute_missing_values(real_t numeric_data[], int categ_data[], bool is_col_major,
                            real_t Xr[], sparse_ix Xr_ind[], sparse_ix Xr_indptr[],
                            size_t nrows, bool use_long_double, int nthreads,
@@ -334,7 +346,7 @@ void impute_missing_values(real_t numeric_data[], int categ_data[], bool is_col_
 /* Append trees from one model into another
 * 
 */
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void merge_models(IsoForest*     model,      IsoForest*     other,
                   ExtIsoForest*  ext_model,  ExtIsoForest*  ext_other,
                   Imputer*       imputer,    Imputer*       iother,
@@ -343,7 +355,7 @@ void merge_models(IsoForest*     model,      IsoForest*     other,
 /* Create a model containing a sub-set of the trees from another model
 * 
 */
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void subset_model(IsoForest*     model,      IsoForest*     model_new,
                   ExtIsoForest*  ext_model,  ExtIsoForest*  ext_model_new,
                   Imputer*       imputer,    Imputer*       imputer_new,
@@ -353,11 +365,11 @@ void subset_model(IsoForest*     model,      IsoForest*     model_new,
 /* Build indexer for faster terminal node predictions and/or distance calculations
 * 
 */
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void build_tree_indices(TreesIndexer &indexer, const IsoForest &model, int nthreads, const bool with_distances);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void build_tree_indices(TreesIndexer &indexer, const ExtIsoForest &model, int nthreads, const bool with_distances);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void build_tree_indices
 (
     TreesIndexer *indexer,
@@ -367,14 +379,14 @@ void build_tree_indices
     const bool with_distances
 );
 /* Gets the number of reference points stored in an indexer object */
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 size_t get_number_of_reference_points(const TreesIndexer &indexer) noexcept;
 
 
 /* Functions to inspect serialized objects
 * 
 */
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void inspect_serialized_object
 (
     const char *serialized_bytes,
@@ -388,7 +400,7 @@ void inspect_serialized_object
     bool &has_metadata,
     size_t &size_metadata
 );
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void inspect_serialized_object
 (
     FILE *serialized_bytes,
@@ -402,7 +414,7 @@ void inspect_serialized_object
     bool &has_metadata,
     size_t &size_metadata
 );
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void inspect_serialized_object
 (
     std::istream &serialized_bytes,
@@ -416,7 +428,7 @@ void inspect_serialized_object
     bool &has_metadata,
     size_t &size_metadata
 );
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void inspect_serialized_object
 (
     const std::string &serialized_bytes,
@@ -434,84 +446,84 @@ void inspect_serialized_object
 /* Serialization and de-serialization functions (individual objects)
 *
 */
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 size_t determine_serialized_size(const IsoForest &model) noexcept;
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 size_t determine_serialized_size(const ExtIsoForest &model) noexcept;
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 size_t determine_serialized_size(const Imputer &model) noexcept;
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 size_t determine_serialized_size(const TreesIndexer &model) noexcept;
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void serialize_IsoForest(const IsoForest &model, char *out);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void serialize_IsoForest(const IsoForest &model, FILE *out);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void serialize_IsoForest(const IsoForest &model, std::ostream &out);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 std::string serialize_IsoForest(const IsoForest &model);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void deserialize_IsoForest(IsoForest &model, const char *in);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void deserialize_IsoForest(IsoForest &model, FILE *in);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void deserialize_IsoForest(IsoForest &model, std::istream &in);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void deserialize_IsoForest(IsoForest &model, const std::string &in);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void serialize_ExtIsoForest(const ExtIsoForest &model, char *out);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void serialize_ExtIsoForest(const ExtIsoForest &model, FILE *out);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void serialize_ExtIsoForest(const ExtIsoForest &model, std::ostream &out);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 std::string serialize_ExtIsoForest(const ExtIsoForest &model);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void deserialize_ExtIsoForest(ExtIsoForest &model, const char *in);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void deserialize_ExtIsoForest(ExtIsoForest &model, FILE *in);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void deserialize_ExtIsoForest(ExtIsoForest &model, std::istream &in);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void deserialize_ExtIsoForest(ExtIsoForest &model, const std::string &in);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void serialize_Imputer(const Imputer &model, char *out);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void serialize_Imputer(const Imputer &model, FILE *out);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void serialize_Imputer(const Imputer &model, std::ostream &out);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 std::string serialize_Imputer(const Imputer &model);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void deserialize_Imputer(Imputer &model, const char *in);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void deserialize_Imputer(Imputer &model, FILE *in);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void deserialize_Imputer(Imputer &model, std::istream &in);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void deserialize_Imputer(Imputer &model, const std::string &in);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void serialize_Indexer(const TreesIndexer &model, char *out);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void serialize_Indexer(const TreesIndexer &model, FILE *out);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void serialize_Indexer(const TreesIndexer &model, std::ostream &out);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 std::string serialize_Indexer(const TreesIndexer &model);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void deserialize_Indexer(TreesIndexer &model, const char *in);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void deserialize_Indexer(TreesIndexer &model, FILE *in);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void deserialize_Indexer(TreesIndexer &model, std::istream &in);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void deserialize_Indexer(TreesIndexer &model, const std::string &in);
 
 
 /* Serialization and de-serialization functions (combined objects)
 *
 */
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 size_t determine_serialized_size_combined
 (
     const IsoForest *model,
@@ -520,7 +532,7 @@ size_t determine_serialized_size_combined
     const TreesIndexer *indexer,
     const size_t size_optional_metadata
 ) noexcept;
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 size_t determine_serialized_size_combined
 (
     const char *serialized_model,
@@ -529,7 +541,7 @@ size_t determine_serialized_size_combined
     const char *serialized_indexer,
     const size_t size_optional_metadata
 ) noexcept;
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void serialize_combined
 (
     const IsoForest *model,
@@ -540,7 +552,7 @@ void serialize_combined
     const size_t size_optional_metadata,
     char *out
 );
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void serialize_combined
 (
     const IsoForest *model,
@@ -551,7 +563,7 @@ void serialize_combined
     const size_t size_optional_metadata,
     FILE *out
 );
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void serialize_combined
 (
     const IsoForest *model,
@@ -562,7 +574,7 @@ void serialize_combined
     const size_t size_optional_metadata,
     std::ostream &out
 );
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 std::string serialize_combined
 (
     const IsoForest *model,
@@ -572,7 +584,7 @@ std::string serialize_combined
     const char *optional_metadata,
     const size_t size_optional_metadata
 );
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void serialize_combined
 (
     const char *serialized_model,
@@ -583,7 +595,7 @@ void serialize_combined
     const size_t size_optional_metadata,
     FILE *out
 );
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void serialize_combined
 (
     const char *serialized_model,
@@ -594,7 +606,7 @@ void serialize_combined
     const size_t size_optional_metadata,
     std::ostream &out
 );
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 std::string serialize_combined
 (
     const char *serialized_model,
@@ -604,7 +616,7 @@ std::string serialize_combined
     const char *optional_metadata,
     const size_t size_optional_metadata
 );
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void deserialize_combined
 (
     const char* in,
@@ -614,7 +626,7 @@ void deserialize_combined
     TreesIndexer *indexer,
     char *optional_metadata
 );
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void deserialize_combined
 (
     FILE* in,
@@ -624,7 +636,7 @@ void deserialize_combined
     TreesIndexer *indexer,
     char *optional_metadata
 );
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void deserialize_combined
 (
     std::istream &in,
@@ -634,7 +646,7 @@ void deserialize_combined
     TreesIndexer *indexer,
     char *optional_metadata
 );
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void deserialize_combined
 (
     const std::string &in,
@@ -649,40 +661,40 @@ void deserialize_combined
 /* Serialize additional trees into previous serialized bytes
 *
 */
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 bool check_can_undergo_incremental_serialization(const IsoForest &model, const char *serialized_bytes);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 bool check_can_undergo_incremental_serialization(const ExtIsoForest &model, const char *serialized_bytes);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 size_t determine_serialized_size_additional_trees(const IsoForest &model, size_t old_ntrees);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 size_t determine_serialized_size_additional_trees(const ExtIsoForest &model, size_t old_ntrees);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 size_t determine_serialized_size_additional_trees(const Imputer &model, size_t old_ntrees);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 size_t determine_serialized_size_additional_trees(const TreesIndexer &model, size_t old_ntrees);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void incremental_serialize_IsoForest(const IsoForest &model, char *old_bytes_reallocated);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void incremental_serialize_ExtIsoForest(const ExtIsoForest &model, char *old_bytes_reallocated);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void incremental_serialize_Imputer(const Imputer &model, char *old_bytes_reallocated);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void incremental_serialize_Indexer(const TreesIndexer &model, char *old_bytes_reallocated);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void incremental_serialize_IsoForest(const IsoForest &model, std::string &old_bytes);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void incremental_serialize_ExtIsoForest(const ExtIsoForest &model, std::string &old_bytes);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void incremental_serialize_Imputer(const Imputer &model, std::string &old_bytes);
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void incremental_serialize_Indexer(const TreesIndexer &model, std::string &old_bytes);
 
 
 /* Translate isolation forest model into a single SQL select statement
 * 
 */
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 std::string generate_sql_with_select_from(IsoForest *model_outputs, ExtIsoForest *model_outputs_ext,
                                           std::string &table_from, std::string &select_as,
                                           std::vector<std::string> &numeric_colnames, std::vector<std::string> &categ_colnames,
@@ -693,7 +705,7 @@ std::string generate_sql_with_select_from(IsoForest *model_outputs, ExtIsoForest
 /* Translate model trees into SQL select statements
 * 
 */
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 std::vector<std::string> generate_sql(IsoForest *model_outputs, ExtIsoForest *model_outputs_ext,
                                       std::vector<std::string> &numeric_colnames, std::vector<std::string> &categ_colnames,
                                       std::vector<std::vector<std::string>> &categ_levels,
@@ -701,7 +713,7 @@ std::vector<std::string> generate_sql(IsoForest *model_outputs, ExtIsoForest *mo
                                       int nthreads);
 
 
-ISOLATIONFORESTSTREAM_EXPORTED
+ISOTREE_EXPORTED
 void set_reference_points(IsoForest *model_outputs, ExtIsoForest *model_outputs_ext, TreesIndexer *indexer,
                           const bool with_distances,
                           real_t *numeric_data, int *categ_data,

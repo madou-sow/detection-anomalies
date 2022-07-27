@@ -5,10 +5,10 @@ LDFLAGS=-L/home/mamadou/big-data/cerin24022022/isotree/build/libisotree.so /usr/
 
 all : isotree_cpp_sow
 
-isotree_cpp_ex : isotree_cpp_sow.o 
+isotree_cpp_sow : isotree_cpp_sow.o 
 	${CXX} ${CFLAGS} $^ -o $@ ${LDFLAGS} 
 
-isotree_cpp_ex.o : isotree_cpp_sow.cpp
+isotree_cpp_sow.o : isotree_cpp_sow.cpp
 	${CXX} ${CFLAGS} -c $^ -o $@
 
 clean : 
