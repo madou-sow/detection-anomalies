@@ -2,24 +2,17 @@
 
 ISOTREE.hpp = header
 
-isotree_cpp_ex.cpp = f(isotree.hpp)
-
-cat_outlier.cpp = fonction "outlier_tree.hpp"
-
-clusters.cpp = fonction "outlier_tree.hpp"
-
-fit_model.cpp = fonction "outlier_tree.hpp"
-
-misc.cpp = fonction "outlier_tree.hpp"
-
-predict.cpp = fonction "outlier_tree.hpp"
-
-Rwrapper.cpp = focntion  "outlier_tree.hpp"
-
-split.cpp = fonction "outlier_tree.hpp"
+isotree_cpp_ex.cpp = f(isotree.hpp)<br>
+cat_outlier.cpp = fonction "outlier_tree.hpp"<br>
+clusters.cpp = fonction "outlier_tree.hpp"<br>
+fit_model.cpp = fonction "outlier_tree.hpp"<br>
+misc.cpp = fonction "outlier_tree.hpp"<br>
+predict.cpp = fonction "outlier_tree.hpp"<br>
+Rwrapper.cpp = focntion  "outlier_tree.hpp"<br>
+split.cpp = fonction "outlier_tree.hpp"<br>
 
 isoforest.hpp = f(isotree.hpp)<br>
-fit_model.hpp= fonction "isotree.hpp"\n
-isoforest.hpp= fonction "isotree.hpp"
-predict.hpp= fonction "isotree.hpp"
-isotree.hpp= fonction "isotree.hpp"
+fit_model.hpp= fonction "isotree.hpp"<br>
+isoforest.hpp= fonction "isotree.hpp"<br>
+predict.hpp= fonction "isotree.hpp"<br>
+isotree.hpp= fonction "isotree.hpp"<br>
