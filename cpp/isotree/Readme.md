@@ -18,8 +18,8 @@ Rwrapper.cpp = focntion  "outlier_tree.hpp"
 
 split.cpp = fonction "outlier_tree.hpp"
 
-isoforest.hpp = f(isotree.hpp)
-fit_model.hpp= fonction "isotree.hpp"
+isoforest.hpp = f(isotree.hpp)\n
+fit_model.hpp= fonction "isotree.hpp"\n
 isoforest.hpp= fonction "isotree.hpp"
 predict.hpp= fonction "isotree.hpp"
 isotree.hpp= fonction "isotree.hpp"
