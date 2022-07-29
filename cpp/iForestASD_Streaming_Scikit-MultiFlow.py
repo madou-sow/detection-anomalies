@@ -71,25 +71,7 @@ class IsolationTree:
 
         return self
 
-def c(n):
-    if n > 2:
-        return 2.0*(np.log(n-1)+0.5772156649) - (2.0*(n-1.)/(n*1.0))
-    elif n == 2:
-        return 1
-    if n == 1:
-        return 0
 
-def path_length_tree(x, t,e):
-    e = e
-    if t.exnodes == 1:
-        e = e+ c(t.size)
-        return e
-    else:
-        a = t.split_by
-        if x[a] < t.split_value :
-            return path_length_tree(x, t.left, e+1)
-        if x[a] >= t.split_value :
-            return path_length_tree(x, t.right, e+1)
           
 # IsolationTreeEnsemble : Contain an Isolation Tree Ensemble object, current model for IsolationForestStream
  
@@ -311,3 +293,28 @@ class IsolationForestStream(BaseSKMObject, ClassifierMixin):
     if(self.samples_seen <= self.window_size):
         return [-1]
     return self.ensemble.anomaly_score(self.prec_window)[-1] # Anomaly return an array with all scores of each data, taking -1 return the last instance (X) anomaly score
+
+
+
+
+
+
+def c(n):
+    if n > 2:
+        return 2.0*(np.log(n-1)+0.5772156649) - (2.0*(n-1.)/(n*1.0))
+    elif n == 2:
+        return 1
+    if n == 1:
+        return 0
+
+def path_length_tree(x, t,e):
+    e = e
+    if t.exnodes == 1:
+        e = e+ c(t.size)
+        return e
+    else:
+        a = t.split_by
+        if x[a] < t.split_value :
+            return path_length_tree(x, t.left, e+1)
+        if x[a] >= t.split_value :
+            return path_length_tree(x, t.right, e+1)
