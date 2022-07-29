@@ -30,7 +30,7 @@ An Implementation of Unsupervised Anomaly Detection with Isolation Forest in Sci
 Part 1 - Main Class contians
   - Init,
   - Partial_fit,
-  -  Update_model,
+  - Update_model,
   - Predict methods which use the anomaly_score methods of the iForest class
 
 Part 2 - Isolation Forest class (re-used) and main functions
