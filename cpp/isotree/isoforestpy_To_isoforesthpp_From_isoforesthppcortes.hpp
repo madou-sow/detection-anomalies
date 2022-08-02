@@ -60,7 +60,7 @@
 *     OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 *     OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-#include "isotree_For_isoforestpy_To_isoforesthpp_From_isoforesthppcortes.hpp"
+#include "isotree_sow.hpp"
 
 template <class InputData, class WorkerMemory, class ldouble_safe>
 void split_itree_recursive(std::vector<IsoTree>     &trees,

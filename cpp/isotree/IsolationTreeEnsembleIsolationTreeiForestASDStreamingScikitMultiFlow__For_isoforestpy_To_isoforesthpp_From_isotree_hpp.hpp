@@ -14,7 +14,7 @@ using std::size_t;
     library header:
       #define real_t float
       #define sparse_ix int
-      #include "IsolationTreeEnsembleIsolationTree__For_isoforestpy_To_isoforesthpp_From_isotree_hpp.hpp"
+      #include "IsolationTreeEnsembleIsolationTreeiForestASDStreamingScikitMultiFlow__For_isoforestpy_To_isoforesthpp_From_isotree_hpp.hpp"
     The header may be included multiple times if required. */
 #ifndef real_t
     #define real_t double     /* supported: float, double */
@@ -46,7 +46,21 @@ typedef enum  ScoringMetric  {Depth=0,     Density=92,     BoxedDensity=94, Boxe
 
 
 // sowD1
-//
+
+
+// IsolationForestStream & IsolationStream
+
+typedef struct IsolationForestStream {
+    std::vector<std::vector<IsolationStream>> trees;
+    NewCategAction    new_cat_action;
+    CategSplit        cat_split_type;
+    MissingAction     missing_action;
+    double            exp_avg_depth;
+    double            exp_avg_sep;
+    size_t            orig_sample_size;
+    bool              has_range_penalty;
+    IsolationStream() = default;
+} IsolationForestStream;
 
 
 
@@ -79,6 +93,107 @@ typedef struct IsolationForest {
 } IsolationForest;
 //
 //
+
+
+
+// IsolationStream
+typedef struct IsolationStream {
+     int window_size;
+     int n_estimators;
+     double anomaly_threshold;
+     double drift_threshold;
+     double random_state;
+     std::vector<std::vector<IsolationStream>> ensemble;
+     std::vector<std::vector<IsolationStream>> window;
+     std::vector<std::vector<IsolationStream>> prec_window;
+     int cpt;
+     IsolationStream() = default;
+
+} IsolationStream;
+
+typedef struct partial_fit {
+     int X;
+     int n_samples;
+     int n_features;
+     int y;
+     int number_instances;
+     char samples_seen;
+     std::vector<std::vector<IsolationTreeEnsemble>> iforest;
+
+} partial_fit;
+
+typedef struct _partial_fit {
+     int X;
+     int n_samples;
+     int n_features;
+     int y;
+     int number_instances;
+     char samples_seen;
+     int n_estimators;
+     int cpt;
+     std::vector<std::vector<ensemble.fit>> prec_window;
+     double prec_window;
+     std::vector<std::vector<anomaly_rate>> prec_window;
+     double drift_threshold;
+     std::vector<std::vector<update_model>> prec_window;
+
+} _partial_fit;
+
+
+typedef struct _partial_fit {
+     int X;
+     int n_samples;
+     int n_features;
+     int y;
+     int number_instances;
+     char samples_seen;
+     int n_estimators;
+     int cpt;
+     std::vector<std::vector<ensemble.fit>> prec_window;
+     double prec_window;
+     std::vector<std::vector<anomaly_rate>> prec_window;
+     double drift_threshold;
+     std::vector<std::vector<update_model>> prec_window;
+
+} _partial_fit;
+
+
+typedef struct update_model {
+     int window;
+     int n_samples;
+     int n_features;
+     int window_size;
+     int n_estimators;
+     double random_state;
+     std::vector<std::vector<ensemble>> iforest;
+     std::vector<std::vector<ensemble.fit>> window;
+
+} update_model;
+
+typedef struct anomaly_scores_rate {
+     int window;
+     double score_tab;
+     std::vector<std::vector<score_tab>> window;
+     int score;
+     int anomaly_threshold;
+     int samples_seen;
+
+} anomaly_scores_rate;
+
+
+typedef struct predict {
+     int X;
+     double score_tab;
+     std::vector<std::vector<prec_window>> X;
+     std::vector<std::vector<prediction>> prec_window;
+} predict;
+
+typedef struct predict_proba {
+     int X;
+     double samples_seen;
+     double window_size;
+} predict_proba;
+
 
 // IsolationTreeEnsemble
 typedef struct IsolationTreeEnsemble {
@@ -128,7 +243,6 @@ typedef struct predict {
      std::vector<std::vector<path_length>> scores;
      std::vector<std::vector<scores>> predictions;
 } predict;
-
 
 
 // IsolationTree
@@ -183,6 +297,10 @@ typedef struct path_length_tree {
      double x;
      double t;
      double e;
+     double split_value;
+     double split_by;
+     size_t left;
+     size_t right;
 
 } path_length_tree;
 

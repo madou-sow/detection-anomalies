@@ -14,7 +14,7 @@ using std::size_t;
     library header:
       #define real_t float
       #define sparse_ix int
-      #include "isotree_For_isoforestpy_To_isoforesthpp_From_isoforesthppcortes.hpp"
+      #include "IsolationTree__For_isoforestpy_To_isoforesthpp_From_isotree_hpp.hpp"
     The header may be included multiple times if required. */
 #ifndef real_t
     #define real_t double     /* supported: float, double */
@@ -47,6 +47,20 @@ typedef enum  ScoringMetric  {Depth=0,     Density=92,     BoxedDensity=94, Boxe
 
 // sowD1
 
+// IsolationForest & IsolationTree
+typedef struct IsolationForest {
+    std::vector<std::vector<IsolationTree>> trees;
+    NewCategAction    new_cat_action;
+    CategSplit        cat_split_type;
+    MissingAction     missing_action;
+    double            exp_avg_depth;
+    double            exp_avg_sep;
+    size_t            orig_sample_size;
+    bool              has_range_penalty;
+    IsolationForest() = default;
+} IsolationForest;
+
+//
 typedef struct IsolationTree {
     double height_limit; 
     double current_height;
