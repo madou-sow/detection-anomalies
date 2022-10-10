@@ -1,7 +1,7 @@
 # Détection d'Anomalies
 
 **Proposition de Christophe C.**
-
+1-
 Dans la continuation de notre travail avec Kimura, nous allons maintenant passer au data stream anomaly detection problem.
 
 Il y a en gros 3 techniques pour la détection d’anomalies, qui sont parfaitement résumées dans le papier suivant qui attaque la question du « online » (comme nous pour le clustering) : https://hal.archives-ouvertes.fr/hal-02874869v2/file/IForestASD_ScikitMultiflow_Version2_PourHAL.pdf
@@ -11,6 +11,14 @@ Il faudrait faire une implémentation en C de ce qui est proposé dans cet artic
 Notre fond de commerce c’est de pouvoir exécuter sur des devices comme celui de Terasic(https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&CategoryNo=167&No=1046&PartNo=6#contents) mentionné ci-après. Tu vas reconnaître des SDK pour ce type de board.
 
 L’article sur HAL, lui, suppose que nous travaillons dans l’écosystème Python (voir la communauté Tinyml (https://www.tinyml.org/) , voir micropython (https://micropython.org/), voir river cité dans l’article https://github.com/online-ml/river/ et https://scikit-multiflow.github.io/). C’est la vision un peu orthogonale à la notre. Nous n’allons pas aller dans cette direction.
+
+2- 10 octobre 2022
+J’ai pensé à une suite du travail. Il s’agirait de partir sur Tiny Go (https://tinygo.org/) plutot que de travailler avec Tinyml (https://www.tinyml.org/)
+Dans ce cadre il faudrait reprendre le code C du clustering et le porter en Go. C’est pas très difficile car Go ressemble à C, tout du moins beaucoup plus que Python.
+Est-ce que tu peux regarder cela ? Pour apprendre Go, voir https://go.dev/
+
+
+
 
 # [Détails de l'Article Mariam Barry & al.](https://github.com/MariamBARRY)
 
