@@ -12,13 +12,6 @@ Notre fond de commerce c’est de pouvoir exécuter sur des devices comme celui 
 
 L’article sur HAL, lui, suppose que nous travaillons dans l’écosystème Python (voir la communauté Tinyml (https://www.tinyml.org/) , voir micropython (https://micropython.org/), voir river cité dans l’article https://github.com/online-ml/river/ et https://scikit-multiflow.github.io/). C’est la vision un peu orthogonale à la notre. Nous n’allons pas aller dans cette direction.
 
-2- 10 octobre 2022
-
-J’ai pensé à une suite du travail. Il s’agirait de partir sur Tiny Go (https://tinygo.org/) plutot que de travailler avec Tinyml (https://www.tinyml.org/)
-Dans ce cadre il faudrait reprendre le code C du clustering et le porter en Go. 
-C’est pas très difficile car Go ressemble à C, tout du moins beaucoup plus que Python.
-Est-ce que tu peux regarder cela ? Pour apprendre Go, voir https://go.dev/
-
 
 
 
