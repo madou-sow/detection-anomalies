@@ -102,7 +102,7 @@ l’arbre par une taille du chemin plus court en moyenne que les autres.
 choix est aléatoire. Donc l’AUC ROC permet d’évaluer le potentiel du modèle à prédire. Il est clair que l’ AUC ROC n’est pas susceptible de la valeur du seuil de distinction
 
 
-# Résultats de nos RECHERCHES
+# Mise au Point
 
 ## 1. Concepts et notions
 
